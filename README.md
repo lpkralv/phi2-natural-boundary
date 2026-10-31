@@ -1,6 +1,7 @@
 # Lean formalization: under RH, Re s = 1 is a natural boundary of Φ₂
 
 Louis P. Slothouber
+lpslot@me.com
 
 Lean 4 code for the paper
 
