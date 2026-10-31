@@ -1,0 +1,16 @@
+name = "Phi2NB"
+defaultTargets = ["Phi2NB"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+
+# PrimeNumberTheoremAnd, pinned to a fixed commit; it fixes the Mathlib version (v4.34.0).
+[[require]]
+name = "PrimeNumberTheoremAnd"
+git = "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd.git"
+rev = "c39a751132c88b6e8080b74c74023fd95b3d8be0"
+
+[[lean_lib]]
+name = "Phi2NB"

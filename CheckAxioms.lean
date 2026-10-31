@@ -1,0 +1,6 @@
+import Phi2NB
+
+#print axioms GoldbachBoundaries.phi2_natural_boundary
+#print axioms GoldbachBoundaries.phi2_natural_boundary_classical
+#check @GoldbachBoundaries.phi2_natural_boundary
+#check @GoldbachBoundaries.phi2_natural_boundary_classical
