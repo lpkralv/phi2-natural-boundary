@@ -8,7 +8,7 @@ Lean 4 code for the paper
 > Louis P. Slothouber, *The line Re s = 1 is a natural boundary of Σ Λ(m)Λ(n)(m+n)^(-s) under the Riemann
 > Hypothesis*, preprint, 2026.
 
-Release `v1.0` is the version described in the paper.
+Release `v1.1` is the version the paper describes. It adds the extension to sums of `r` prime powers (Section 7 of the paper). Release `v1.0` is the earlier version, with the Φ₂ development only.
 
 ## What it proves
 
@@ -46,11 +46,27 @@ The three classical theorems are stated in `Phi2NB/Paper2/Defs.lean`:
 
 The passage from Titchmarsh's statements to these forms is checked by hand in Section 2 of the paper. Whether the
 formal definitions say what the prose says is a matter of reading them; Appendix A of the paper reproduces the
-statements of the theorem and the corollary verbatim (docstrings and proofs omitted) and explains every name they
+statements of the main theorems and their corollaries verbatim (docstrings and proofs omitted) and explains every name they
 use.
 
-The library has 76 Lean files (7,440 lines). Its declarations live in the namespace `GoldbachBoundaries`, kept from
-the larger development the library was extracted from. The only dependencies are Mathlib and PrimeNumberTheoremAnd.
+The extension to sums of `r` prime powers is in `Phi2NB/PhiR/Statement.lean`. For every `r ≥ 2`,
+`phiR_natural_boundary` gives a continuation to Re s > r − 1, its simple poles and residues, and the natural
+boundary on Re s = r − 1. `phiR_natural_boundary_classical` gives the disc formulation. Both take RH, RvM, LDL
+and LG. The continuation itself uses RH alone, as do the reduction identity `phiR_reduction` for `r ≥ 3` and
+the pointwise transfer `phiR_singular_iff`. The radial limit `phiR_radial_limit` uses RH, RvM and LDL, and is
+stated for the specified continuation `PhiRProof.PhiRc r` and for τ ≠ 0. `phiR_natural_boundary_two` derives
+the `r = 2` statement directly from the original `phi2_natural_boundary`.
+
+The extension leaves all the Lean files of release `v1.0`, including `Phi2NB.lean`, unchanged. (The comment at the head of `Phi2NB.lean` says the library holds the declarations
+used by `phi2_natural_boundary` "and nothing else"; that describes release `v1.0`. In `v1.1` the files under `Phi2NB/PhiR/` are further, separate
+declarations, outside the import tree of `Phi2NB.lean`.) Import
+`Phi2NB.PhiR.Statement` to use the extension. Plain `lake build` still builds the original entry point;
+the explicit build command below includes PhiR. The file and line counts below cover `Phi2NB.lean` and
+all Lean files under `Phi2NB/`, excluding the two axiom-check scripts.
+
+The library has 101 Lean files (10,016 lines), including 25 PhiR files (2,576 lines). Its declarations live in
+the namespace `GoldbachBoundaries`, kept from the larger development the library was extracted from. The only dependencies are Mathlib and PrimeNumberTheoremAnd.
+Including the two axiom-check scripts, there are 103 Lean files (10,033 lines).
 
 ## Versions
 
@@ -65,10 +81,12 @@ the larger development the library was extracted from. The only dependencies are
 With elan installed (it reads `lean-toolchain` and fetches the right Lean), from this folder:
 
     lake exe cache get              # downloads the Mathlib build cache
-    lake build                      # builds PrimeNumberTheoremAnd and Phi2NB
-    lake env lean CheckAxioms.lean  # prints the axioms and the statement
+    lake build Phi2NB Phi2NB.PhiR.Statement  # builds both developments
+    lake env lean CheckAxioms.lean           # original Phi2 axiom check
+    lake env lean CheckPhiRAxioms.lean       # five PhiR theorems and original Phi2 theorem
 
-`lake build` should end with `Build completed successfully`. The last command should print
+`lake build Phi2NB Phi2NB.PhiR.Statement` should end with `Build completed successfully`.
+`CheckAxioms.lean` should print
 
     'GoldbachBoundaries.phi2_natural_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
     'GoldbachBoundaries.phi2_natural_boundary_classical' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -77,12 +95,20 @@ followed by the full types of the theorem and the corollary. These are the three
 no `sorry` and no other axiom is used. The library contains no `sorry`, `admit`, `native_decide` or `axiom`
 declaration.
 
-These steps were checked on a clean copy of this release (macOS, Apple silicon): `lake exe cache get` and
+The original Phi2-only steps were checked on a clean copy of release v1.0 (macOS, Apple silicon): `lake exe cache get` and
 `lake build` together took about 25 minutes, almost all of it building PrimeNumberTheoremAnd; the build finished
 with no errors. It prints some warnings. Those in `Phi2NB` are linter and deprecation notices (unused simp
 arguments, `if_pos`/`if_neg` deprecated, `Try this` suggestions). Two are `declaration uses 'sorry'` in
 PrimeNumberTheoremAnd's own `Wiener.lean`; nothing in this library depends on them, as the axiom check shows
 (a dependence on `sorry` would add `sorryAx` to the list).
+
+The PhiR extension was rebuilt on 2026-11-06 with the pinned Lean 4.34.0 and dependency manifest, after `lake clean`,
+with Mathlib restored from the local build cache and everything else compiled; the build took about 21 minutes (a later incremental rebuild after comment edits: about 7 minutes). The command
+`lake build Phi2NB Phi2NB.PhiR.Statement` ended with `Build completed successfully (9110 jobs).`
+`BuildPhiR.out` records the full output of the later incremental rebuild and all 15 warnings: 13 linter or deprecation notices in the release,
+and the two dependency `Wiener.lean` warnings described above. The four warnings in the new PhiR files are
+unused `ht` bindings in `QR_eq_sum.lean` and `norm_QR_le.lean`, and `simp` suggestions in `mellin_FL_pow.lean`
+and `Gamma_mul_PhiR_split.lean`.
 
 ## Correspondence with the paper
 
@@ -90,6 +116,23 @@ Hypothesis abbreviations: RH = Mathlib's `RiemannHypothesis`; RvM = `RiemannVonM
 Titchmarsh 9.2); LDL = `LogDerivZetaLocal` ((Z3), Titchmarsh 9.6(A)); LG = `LittlewoodGap` ((Z2), Titchmarsh 9.12).
 "Lean assumes" lists the hypotheses of the declaration. The threshold of Section 5 of the paper, X, is called `H` in
 Lean. To find a declaration, search the sources for its name (for example `grep -rn "theorem hL_explicit" Phi2NB`).
+
+### Premise correspondence with a stronger formulation of the premises
+
+`Phi2NB/PhiR/PremiseCorrespondence.lean` reproduces a stronger formulation of the premises in the namespace
+`GoldbachBoundaries.PhiRSource` and checks these bridges in Lean:
+
+| Stronger formulation | Release | Correspondence |
+|---|---|---|
+| `PhiRSource.Z2` | `Paper2.RiemannVonMangoldt` | Different propositions. `Z2` is the conjunction of the Riemann–von Mangoldt asymptotic and the local-count bound; the release premise is exactly the second conjunct. `PhiRSource.riemannVonMangoldt_of_Z2` projects it. The extension uses only the local count through the existing release proofs, with no asymptotic premise added or inferred. |
+| `PhiRSource.Z3` | `Paper2.LogDerivZetaLocal` | Identical definition bodies; `PhiRSource.Z3_iff_logDerivZetaLocal` is `Iff.rfl`. |
+| `PhiRSource.ZLittlewood` | `Paper2.LittlewoodGap` | Identical definition bodies; `PhiRSource.ZLittlewood_iff_littlewoodGap` is `Iff.rfl`. |
+| `PhiRSource.Phi2` | `Phi2` | Identical ordered-pair series, including junk values; `PhiRSource.Phi2_eq_release` is `rfl`. |
+
+The general theorem therefore has the same conclusion as the same theorem under the stronger formulation, with a
+weaker counting premise. No proof here derives the full `Z2` from `RiemannVonMangoldt`. The stronger formulation is
+the one the extension was first written against, before it was ported to this library's premises. No theorem of the
+release uses `PhiRSource`; the file records the difference, and its bridges are definitional.
 
 ### Classical inputs and unnumbered facts (paper Sections 2 and 3)
 
@@ -119,6 +162,11 @@ Lean. To find a declaration, search the sources for its name (for example `grep 
 |---|---|---|---|
 | Theorem 1.1(i) | `phi2_continuation`; first conjunct of `phi2_natural_boundary` | RH (continuation); RH, RvM, LDL, LG (main theorem) | the continuation is `Phi2c` = M + H |
 | Theorem 1.1(ii) | `phi2_natural_boundary_classical` applied to `Phi2c`; `phi2_boundary` | RH, RvM, LDL, LG | Lean also proves the codiscrete form for every meromorphic continuation |
+| Theorem 7.1(i) | `PhiRProof.phiR_continuation`; first conjunct of `phiR_natural_boundary` | RH, `2 ≤ r` (continuation); RH, RvM, LDL, LG, `2 ≤ r` (main theorem) | `PhiRProof.PhiRc r`, simple poles `r` and `r − 1 + ρ`, with the stated nonzero residues |
+| Theorem 7.1(ii) | `phiR_natural_boundary_classical`; second conjunct of `phiR_natural_boundary` | RH, RvM, LDL, LG, `2 ≤ r`; classical form also assumes a meromorphic continuation equal to `PhiR r` on Re s > r | boundary at Re s = r − 1 for every continuation; `phiR_singular_iff` transfers the pointwise meromorphic obstruction under RH alone |
+| Theorem 7.1(iii) | `phiR_radial_limit` | RH, RvM, LDL, `2 ≤ r`, `τ ≠ 0` | limit for `PhiRProof.PhiRc r`, which `PhiRProof.phiR_continuation` shows is meromorphic on Re s > r − 1 and equal to `PhiR r` on Re s > r; coefficient `choose r 2 * Phi2Proof.pairAtom τ / Gamma (r − 1 + iτ)`; for `Φ₂` itself, `PhiRProof.tendsto_eta_Phi2c` states the limit for `Phi2c` |
+| Proposition 7.2, identity (22); identity (21) | `phiR_reduction`; Γ-form `PhiRProof.Gamma_mul_PhiR_split` | RH, `3 ≤ r` (reduction); `2 ≤ r`, Re s > r (Γ-form, no RH) | identity on Re s > r; K_r is holomorphic on Re s > r − 3/2: `PhiRProof.differentiableOn_KR` (RH); holomorphic remainder on Re s > r − 3/2, bounded on each half-strip of the paper |
+| Theorem 7.1, specialization `r = 2` | `phiR_natural_boundary_two`, `PhiR_two`, `phiRPoles_two`, `hasPhiRResidues_two_iff` | RH, RvM, LDL, LG (boundary); none (definition bridges) | derived directly from the unchanged `phi2_natural_boundary` |
 | Lemma 3.1 (decomposition) | `Gamma_mul_negLogDerivZeta_split'`, `Gamma_mul_Phi2_split'`, `differentiable_e1L_E2L`, `phi2_identity` | — | integrability of h x^{z−1}: `integrableOn_Ioc_hL_mul_cpow`; of R: inside `Gamma_mul_Phi2_split'`; (14) is `Gamma_mul_negLogDerivZeta_split'` |
 | Lemma 3.2 (first shift, h = O(x^{−b})) | `verticalIntegral'_kernelL_shift`, `norm_hL_le` | RH | integrability on both lines: `integrable_kernelL`; Lean uses `norm_negLogDerivZeta_le_log` where the paper uses (5) |
 | Proposition 3.3 (continuation) | `differentiableOn_RrL`, `differentiableOn_Hphi2`, `meromorphicOn_phi2Main`, `analyticAt_negLogDerivZeta_sub_one`, `phi2_continuation` | RH | |
@@ -144,10 +192,14 @@ Lean. To find a declaration, search the sources for its name (for example `grep 
 
 ### Not formalized
 
-The uniqueness of the continuation (identity theorem, remark after Theorem 1.1); the remark after Theorem 1.1 on
+The remark after Theorem 1.1 on
 poles for r ≤ ½; the passage from Titchmarsh's statements to the forms (Z1) and (Z3); the remark on same-sign
-weights; the phase-drift heuristic of Section 5; the remarks of Section 7 (the comparison with Egami and Matsumoto,
-the radial limit of Φ₂ itself at τ = 0 with the value μ{0} − 2 log 2π, thresholds). The proof uses none of them.
+weights; the phase-drift heuristic of Section 5; the remarks of Section 8 (the comparison with Egami and Matsumoto,
+the radial limit of Φ₂ itself at τ = 0 with the value μ{0} − 2 log 2π, thresholds); the remark on the kernel T₃
+in the opening paragraph of Section 7. The proof uses none of them. The uniqueness of the continuation (remark after
+Theorem 1.1) is formalized in the form the proof uses: two meromorphic continuations that agree with the series
+agree on a punctured neighbourhood of every point (`Phi2Proof.eventuallyEq_nhdsNE_of_agree_halfPlane_two'`; for
+`Φ_r`, `PhiRProof.eventuallyEq_nhdsNE_of_agree_halfPlane`).
 
 ### Formalized only in weaker form
 
@@ -162,7 +214,9 @@ established formally only inside the proofs that use it; for R, inside `Gamma_mu
 
 `#print axioms` on `GoldbachBoundaries.phi2_natural_boundary` and on
 `GoldbachBoundaries.phi2_natural_boundary_classical` gives `[propext, Classical.choice, Quot.sound]` for each; run
-`lake env lean CheckAxioms.lean` to see it. The result is also recorded in the docstring of
+`lake env lean CheckAxioms.lean` to see it. The captured output is in `CheckAxioms.out`.
+`CheckPhiRAxioms.lean` checks the five PhiR theorems and the original Phi2 theorem; its captured
+output is in `CheckPhiRAxioms.out`. All six give the same three standard axioms. The original result is also recorded in the docstring of
 `Phi2NB/Phi2/Statement.lean`.
 
 ## License

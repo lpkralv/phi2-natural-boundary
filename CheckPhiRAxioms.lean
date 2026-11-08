@@ -1,0 +1,11 @@
+import Phi2NB.PhiR.Statement
+
+#print axioms GoldbachBoundaries.phiR_natural_boundary
+#print axioms GoldbachBoundaries.phiR_natural_boundary_classical
+#print axioms GoldbachBoundaries.phiR_reduction
+#print axioms GoldbachBoundaries.phiR_radial_limit
+#print axioms GoldbachBoundaries.phiR_natural_boundary_two
+#print axioms GoldbachBoundaries.phi2_natural_boundary
+
+#check @GoldbachBoundaries.phiR_natural_boundary
+#check @GoldbachBoundaries.phiR_natural_boundary_classical

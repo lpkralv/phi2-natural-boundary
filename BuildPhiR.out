@@ -1,0 +1,94 @@
+Fri Nov  6 15:29:23 EST 2026
+⚠ [8960/9085] Replayed PrimeNumberTheoremAnd.Wiener
+warning: PrimeNumberTheoremAnd/Wiener.lean:325:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/Wiener.lean:344:8: declaration uses `sorry`
+⚠ [9029/9110] Replayed Phi2NB.Phi2.Fill.ACommon
+warning: Phi2NB/Phi2/Fill/ACommon.lean:73:12: This simp argument is unused:
+  vonMangoldt_zero'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Phi2NB/Phi2/Fill/ACommon.lean:126:30: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Phi2NB/Phi2/Fill/ACommon.lean:142:42: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Phi2NB/Phi2/Fill/ACommon.lean:209:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Phi2NB/Phi2/Fill/ACommon.lean:208:16: This simp argument is unused:
+  vonMangoldt_zero'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9065/9110] Replayed Phi2NB.Phi2.Fill.CCommon
+warning: Phi2NB/Phi2/Fill/CCommon.lean:19:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [9066/9110] Replayed Phi2NB.Phi2.Fill.integral_zeroSum_sq
+warning: Phi2NB/Phi2/Fill/integral_zeroSum_sq.lean:18:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [9069/9110] Replayed Phi2NB.Phi2.Fill.tendsto_eta_cauchyT
+warning: Phi2NB/Phi2/Fill/tendsto_eta_cauchyT.lean:37:21: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Phi2NB/Phi2/Fill/tendsto_eta_cauchyT.lean:45:24: `if_neg` has been deprecated: Use `ite_eq_right` instead
+✔ [9087/9110] Built Phi2NB.PhiR.Defs (35s)
+✔ [9088/9110] Built Phi2NB.PhiR.Proof.Defs (14s)
+⚠ [9089/9110] Built Phi2NB.PhiR.Fill.QR_eq_sum (92s)
+warning: Phi2NB/PhiR/Fill/QR_eq_sum.lean:14:49: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [9090/9110] Built Phi2NB.PhiR.Fill.norm_QR_le (92s)
+warning: Phi2NB/PhiR/Fill/norm_QR_le.lean:14:62: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9091/9110] Built Phi2NB.PhiR.Fill.differentiable_ER (92s)
+✔ [9092/9110] Built Phi2NB.PhiR.Fill.noMeromorphicExtensionAt_comp_sub_iff (92s)
+✔ [9093/9110] Built Phi2NB.PhiR.Fill.noMeromorphicExtensionAt_iff_of_eq_add_mul (92s)
+⚠ [9094/9110] Built Phi2NB.PhiR.Fill.mellin_FL_pow (100s)
+warning: Phi2NB/PhiR/Fill/mellin_FL_pow.lean:15:12: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [9095/9110] Built Phi2NB.PhiR.Fill.Gamma_mul_PhiR_split (101s)
+warning: Phi2NB/PhiR/Fill/Gamma_mul_PhiR_split.lean:15:12: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [9096/9110] Built Phi2NB.PhiR.Proof.M1Mellin (35s)
+✔ [9097/9110] Built Phi2NB.PhiR.Fill.BCommon (43s)
+✔ [9098/9110] Built Phi2NB.PhiR.Fill.PhiR_eq_explicit (43s)
+✔ [9099/9110] Built Phi2NB.PhiR.Fill.exists_RR (43s)
+✔ [9100/9110] Built Phi2NB.PhiR.Fill.RR_bounded_halfStrip (43s)
+✔ [9101/9110] Built Phi2NB.PhiR.Fill.analyticOnNhd_PhiRc (73s)
+✔ [9102/9110] Built Phi2NB.PhiR.Fill.riemannZeta_ne_zero_of_re_eq_zero (73s)
+✔ [9103/9110] Built Phi2NB.PhiR.Fill.tendsto_eta_Phi2c (73s)
+✔ [9104/9110] Built Phi2NB.PhiR.Fill.analyticAt_phiRRest_line (73s)
+✔ [9105/9110] Built Phi2NB.PhiR.Fill.hasResidue_PhiRc (73s)
+✔ [9106/9110] Built Phi2NB.PhiR.Proof.M2Continuation (27s)
+✔ [9107/9110] Built Phi2NB.PhiR.Proof.M4Reduction (23s)
+✔ [9108/9110] Built Phi2NB.PhiR.Proof.M3Boundary (24s)
+✔ [9109/9110] Built Phi2NB.PhiR.Proof.M5Radial (21s)
+✔ [9110/9110] Built Phi2NB.PhiR.Statement (22s)
+Build completed successfully (9110 jobs).
+lake build Phi2NB Phi2NB.PhiR.Statement  90.56s user 514.86s system 148% cpu 6:47.30 total
+exit=0
+Fri Nov  6 15:36:11 EST 2026
