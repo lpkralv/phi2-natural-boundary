@@ -5,7 +5,7 @@ lpslot@me.com
 
 Lean 4 code for the paper
 
-> Louis P. Slothouber, *A natural boundary of the Goldbach generating series assuming only H∞*, preprint, 2026.
+> Louis P. Slothouber, *The Egami–Matsumoto conjecture under the Riemann Hypothesis alone: a natural boundary of the Goldbach generating series*, preprint, 2026.
 
 Release `v1.2` contains the H∞ development of Theorems A and C and the retained RH development of Corollary B in one Lake
 project. Import `Phi2NB` to use both. Plain `lake build` builds the single default target `Phi2NB`.
@@ -183,7 +183,7 @@ PrimeNumberTheoremAnd and all release modules then compiled from source after `l
 
 ## Correspondence with the paper
 
-These rows follow Appendix A of *A natural boundary of the Goldbach generating series assuming only H∞*.
+These rows follow Appendix A of *The Egami–Matsumoto conjecture under the Riemann Hypothesis alone: a natural boundary of the Goldbach generating series*.
 H = `Hinf`, Sym = `Z1`, Count = `Z2`, Local = `Z3`, Gap = `ZLittlewood`, Stir = `StirlingStrip`.
 RvM, LDL and LG denote the three retained RH premises listed above. The declarations have the prefix
 `GoldbachBoundaries`.
