@@ -1,0 +1,55 @@
+import Phi2NB
+
+#print axioms GoldbachBoundaries.Phi2HInf.zetaNoZeroIoo
+#print axioms GoldbachBoundaries.Phi2HInf.analyticAt_M0_of_not_mem_phi2Poles
+#print axioms GoldbachBoundaries.Phi2HInf.ofReal_not_mem_phi2Poles
+#print axioms GoldbachBoundaries.Phi2HInf.hasResidue_Phi2cHInf_of_not_mem_phi2Poles
+#print axioms GoldbachBoundaries.Phi2HInf.exists_rightZero_of_offLine
+#print axioms GoldbachBoundaries.Phi2HInf.Bsup_attained_of_offLine
+#print axioms GoldbachBoundaries.Phi2HInf.collision_twoBsup_iff
+#print axioms GoldbachBoundaries.Phi2HInf.collisionTwoBsupEquiv
+#print axioms GoldbachBoundaries.Phi2HInf.zeroCoef_mul_zeroCoef_conj
+#print axioms GoldbachBoundaries.Phi2HInf.collisionAtom_twoBsup
+#print axioms GoldbachBoundaries.Phi2HInf.collisionAtom_twoBsup_pos
+#print axioms GoldbachBoundaries.Phi2HInf.hasResidue_Phi2cHInf_twoBsup
+#print axioms GoldbachBoundaries.Phi2HInf.not_analyticAt_Phi2cHInf_twoBsup
+#print axioms GoldbachBoundaries.Phi2HInf.analyticAt_cauchy_of_gap
+#print axioms GoldbachBoundaries.Phi2HInf.analyticAt_C_of_not_pairSum
+#print axioms GoldbachBoundaries.Phi2HInf.analyticAt_Phi2cHInf_of_not_pole
+#print axioms GoldbachBoundaries.Phi2HInf.exists_trivial_of_riemannZeta_eq_zero_of_re_nonpos
+#print axioms GoldbachBoundaries.Phi2HInf.riemannHypothesis_iff_nontrivialZeros
+#print axioms GoldbachBoundaries.Phi2HInf.analyticAt_Phi2cHInf_real_of_RH
+#print axioms GoldbachBoundaries.Phi2HInf.riemannHypothesis_iff_analyticAt_Phi2cHInf_real
+#print axioms GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup
+#print axioms GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup'
+#print axioms GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup_of_continuation
+#print axioms GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole
+#print axioms GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole'
+#print axioms GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole_of_continuation
+
+#check @GoldbachBoundaries.Phi2HInf.zetaNoZeroIoo
+#check @GoldbachBoundaries.Phi2HInf.analyticAt_M0_of_not_mem_phi2Poles
+#check @GoldbachBoundaries.Phi2HInf.ofReal_not_mem_phi2Poles
+#check @GoldbachBoundaries.Phi2HInf.hasResidue_Phi2cHInf_of_not_mem_phi2Poles
+#check @GoldbachBoundaries.Phi2HInf.exists_rightZero_of_offLine
+#check @GoldbachBoundaries.Phi2HInf.Bsup_attained_of_offLine
+#check @GoldbachBoundaries.Phi2HInf.collision_twoBsup_iff
+#check @GoldbachBoundaries.Phi2HInf.collisionTwoBsupEquiv
+#check @GoldbachBoundaries.Phi2HInf.zeroCoef_mul_zeroCoef_conj
+#check @GoldbachBoundaries.Phi2HInf.collisionAtom_twoBsup
+#check @GoldbachBoundaries.Phi2HInf.collisionAtom_twoBsup_pos
+#check @GoldbachBoundaries.Phi2HInf.hasResidue_Phi2cHInf_twoBsup
+#check @GoldbachBoundaries.Phi2HInf.not_analyticAt_Phi2cHInf_twoBsup
+#check @GoldbachBoundaries.Phi2HInf.analyticAt_cauchy_of_gap
+#check @GoldbachBoundaries.Phi2HInf.analyticAt_C_of_not_pairSum
+#check @GoldbachBoundaries.Phi2HInf.analyticAt_Phi2cHInf_of_not_pole
+#check @GoldbachBoundaries.Phi2HInf.exists_trivial_of_riemannZeta_eq_zero_of_re_nonpos
+#check @GoldbachBoundaries.Phi2HInf.riemannHypothesis_iff_nontrivialZeros
+#check @GoldbachBoundaries.Phi2HInf.analyticAt_Phi2cHInf_real_of_RH
+#check @GoldbachBoundaries.Phi2HInf.riemannHypothesis_iff_analyticAt_Phi2cHInf_real
+#check @GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup
+#check @GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup'
+#check @GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup_of_continuation
+#check @GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole
+#check @GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole'
+#check @GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole_of_continuation

@@ -2,5 +2,34 @@ import Phi2NB
 
 #print axioms GoldbachBoundaries.phi2_natural_boundary
 #print axioms GoldbachBoundaries.phi2_natural_boundary_classical
+#print axioms GoldbachBoundaries.Phi2Proof.phi2_continuation
+#print axioms GoldbachBoundaries.Phi2Proof.tendsto_eta_Hphi2
+#print axioms GoldbachBoundaries.phiR_natural_boundary
+#print axioms GoldbachBoundaries.phiR_natural_boundary_classical
+#print axioms GoldbachBoundaries.phiR_natural_boundary_two
+#print axioms GoldbachBoundaries.phiR_singular_iff
+#print axioms GoldbachBoundaries.phiR_reduction
+#print axioms GoldbachBoundaries.phiR_radial_limit
+#print axioms GoldbachBoundaries.PhiRProof.phiR_continuation
+#print axioms GoldbachBoundaries.PhiRProof.tendsto_eta_Phi2c
+#print axioms GoldbachBoundaries.Phi2HInf.phi2_hinf_natural_boundary
+#print axioms GoldbachBoundaries.Phi2HInf.phiR_hinf_natural_boundary
+#print axioms GoldbachBoundaries.Phi2HInf.phi2_hinf_natural_boundary_classical
+#print axioms GoldbachBoundaries.Phi2HInf.phiR_hinf_natural_boundary_classical
+
 #check @GoldbachBoundaries.phi2_natural_boundary
 #check @GoldbachBoundaries.phi2_natural_boundary_classical
+#check @GoldbachBoundaries.Phi2Proof.phi2_continuation
+#check @GoldbachBoundaries.Phi2Proof.tendsto_eta_Hphi2
+#check @GoldbachBoundaries.phiR_natural_boundary
+#check @GoldbachBoundaries.phiR_natural_boundary_classical
+#check @GoldbachBoundaries.phiR_natural_boundary_two
+#check @GoldbachBoundaries.phiR_singular_iff
+#check @GoldbachBoundaries.phiR_reduction
+#check @GoldbachBoundaries.phiR_radial_limit
+#check @GoldbachBoundaries.PhiRProof.phiR_continuation
+#check @GoldbachBoundaries.PhiRProof.tendsto_eta_Phi2c
+#check @GoldbachBoundaries.Phi2HInf.phi2_hinf_natural_boundary
+#check @GoldbachBoundaries.Phi2HInf.phiR_hinf_natural_boundary
+#check @GoldbachBoundaries.Phi2HInf.phi2_hinf_natural_boundary_classical
+#check @GoldbachBoundaries.Phi2HInf.phiR_hinf_natural_boundary_classical

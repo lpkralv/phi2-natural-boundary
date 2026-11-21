@@ -1,0 +1,431 @@
+✔ [8924/8959] Built Architect.Command (1.3s)
+✔ [8926/8994] Built Architect.Basic (1.6s)
+✔ [8927/8994] Built PrimeNumberTheoremAnd.Mathlib.Algebra.Order.Floor.Ring (4.5s)
+✔ [8928/8994] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.Basic (5.0s)
+✔ [8929/8994] Built PrimeNumberTheoremAnd.Mathlib.MeasureTheory.Integral.IntegrableOn (5.0s)
+✔ [8930/8994] Built PrimeNumberTheoremAnd.Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic (4.2s)
+✔ [8931/8998] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Meromorphic.DivisorSupport (5.4s)
+✔ [8932/8998] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Pow.Deriv (5.2s)
+✔ [8933/8998] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Pow.Real (5.1s)
+✔ [8934/8999] Built PrimeNumberTheoremAnd.Tactic.AdditiveCombination (5.5s)
+✔ [8935/9003] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.AbelSummation (4.3s)
+✔ [8936/9003] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Gamma.IntegralBounds (4.3s)
+✔ [8937/9010] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.Convex (6.1s)
+✔ [8938/9010] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZeta (6.2s)
+✔ [8939/9019] Built Architect.CollectUsed (1.8s)
+✔ [8940/9020] Built Architect.Content (1.7s)
+✔ [8941/9020] Built Architect.Tactic (2.0s)
+✔ [8942/9021] Built PrimeNumberTheoremAnd.Mathlib.Algebra.Notation.Support (1.8s)
+✔ [8943/9024] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Gamma.GammaStirlingAux (3.9s)
+✔ [8944/9025] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.Norm (2.8s)
+✔ [8945/9027] Built Architect.Attribute (2.1s)
+✔ [8946/9027] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.ImproperIntegrals (3.7s)
+✔ [8947/9028] Built Architect.Output (2.1s)
+✔ [8948/9029] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.LocallyUniformLimit (3.8s)
+✔ [8949/9030] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Complex.LogBounds (4.5s)
+✔ [8950/9030] Built PrimeNumberTheoremAnd.Mathlib.Topology.MetricSpace.Annulus (3.4s)
+✔ [8951/9032] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Basic (3.0s)
+✔ [8952/9038] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Asymptotics.Asymptotics (5.9s)
+✔ [8953/9038] Built Architect.Load (1.6s)
+✔ [8954/9038] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Log.Basic (6.6s)
+✔ [8955/9040] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Log.PosLog (3.7s)
+✔ [8956/9041] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Exp (3.6s)
+✔ [8957/9041] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Meromorphic.DivisorHolomorphic (3.6s)
+✔ [8958/9041] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Log.Dyadic (4.0s)
+✔ [8959/9043] Built Architect (1.7s)
+✔ [8960/9043] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.AbsMax (3.9s)
+✔ [8961/9043] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaAbelKernel (5.5s)
+✔ [8963/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CartanProductBound (3.6s)
+✔ [8964/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.WeierstrassFactor (4.9s)
+✔ [8965/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Calculus.Deriv.Polynomial (3.8s)
+✔ [8966/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.BorelCaratheodory (4.3s)
+✔ [8967/9179] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.ZetaFunctionalEquation (4.1s)
+✔ [8968/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Log.ExpGrowth (3.9s)
+✔ [8969/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.Trigonometric (3.4s)
+✔ [8970/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CartanBound (6.8s)
+✔ [8971/9179] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaValues (5.1s)
+✔ [8972/9179] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaPartialSum (5.9s)
+✔ [8973/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CanonicalProduct (5.2s)
+✔ [8974/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.CompletedXi (4.5s)
+✔ [8975/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.GammaBounds (6.2s)
+✔ [8976/9179] Built PrimeNumberTheoremAnd.Sobolev (15s)
+✔ [8977/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.ValueDistribution.LogCounting.Growth (5.1s)
+✔ [8978/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CartanInverseFactorBound (3.0s)
+✔ [8979/9179] Built PrimeNumberTheoremAnd.Rectangle (9.6s)
+✔ [8980/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.ExpPoly (8.2s)
+✔ [8981/9179] Built PrimeNumberTheoremAnd.SmoothExistence (10s)
+✔ [8982/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorIndex (3.4s)
+✔ [8983/9179] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaAbelContinuation (3.0s)
+✔ [8984/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.SpecialFunctions.Gamma.StripBounds (5.6s)
+✔ [8985/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorUnits (2.8s)
+✔ [8986/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorConvergence (3.6s)
+✔ [8987/9179] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaConvexity (3.4s)
+✔ [8988/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.ExpPoly.Growth (4.3s)
+✔ [8989/9179] Built PrimeNumberTheoremAnd.Fourier (7.3s)
+✔ [8990/9179] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaStripBound (2.3s)
+✔ [8991/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorFiber (2.7s)
+✔ [8992/9179] Built PrimeNumberTheoremAnd.ResidueCalcOnRectangles (9.7s)
+✔ [8993/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorComplement (3.9s)
+✔ [8994/9179] Built PrimeNumberTheoremAnd.Defs (8.4s)
+✔ [8995/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorPartialProductFactor (2.9s)
+✔ [8996/9179] Built PrimeNumberTheoremAnd.RectangleArgumentPrinciple (7.5s)
+✔ [8997/9179] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.ZetaFiniteOrder (10s)
+✔ [8998/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorQuotientConvergence (4.4s)
+✔ [8999/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.DivisorQuotientRemovable (3.4s)
+✔ [9000/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.Divisor (2.6s)
+⚠ [9001/9179] Built PrimeNumberTheoremAnd.Wiener (20s)
+warning: PrimeNumberTheoremAnd/Wiener.lean:325:8: declaration uses `sorry`
+warning: PrimeNumberTheoremAnd/Wiener.lean:344:8: declaration uses `sorry`
+✔ [9002/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization (2.8s)
+✔ [9003/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Summability (3.3s)
+✔ [9004/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.CartanMajorantBound (6.1s)
+✔ [9005/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Growth (3.4s)
+✔ [9006/9179] Built PrimeNumberTheoremAnd.Mathlib.Analysis.Complex.HadamardFactorization.Order (2.8s)
+✔ [9007/9179] Built PrimeNumberTheoremAnd.Mathlib.NumberTheory.LSeries.RiemannZetaHadamard (4.4s)
+✔ [9008/9179] Built PrimeNumberTheoremAnd.Consequences (20s)
+✔ [9009/9179] Built Phi2NB.Defs (37s)
+✔ [9010/9179] Built Phi2NB.ZetaRealNonvanishing (46s)
+✔ [9011/9179] Built Phi2NB.Phi2.Defs (82s)
+✔ [9012/9179] Built Phi2NB.Paper2.Defs (82s)
+✔ [9013/9179] Built Phi2NB.ResidueAPI (85s)
+✔ [9014/9179] Built Phi2NB.Series (85s)
+✔ [9015/9179] Built Phi2NB.SigmaFinite (85s)
+✔ [9016/9179] Built Phi2NB.Density (85s)
+✔ [9017/9179] Built Phi2NB.BoundaryLemma (85s)
+✔ [9018/9179] Built Phi2NB.PhiR.PremiseCorrespondence (31s)
+✔ [9019/9179] Built Phi2NB.LogDerivZeta (28s)
+✔ [9020/9179] Built Phi2NB.PhiR.Defs (51s)
+✔ [9021/9179] Built Phi2NB.Phi2.Proof.Defs (51s)
+✔ [9022/9179] Built Phi2NB.SigmaMeromorphic (52s)
+✔ [9023/9179] Built Phi2NB.PhiR.Proof.Defs (66s)
+✔ [9024/9179] Built Phi2NB.TIdentity.Basic (67s)
+✔ [9025/9179] Built Phi2NB.TIdentity.G7a_ZetaBound (126s)
+✔ [9026/9179] Built Phi2NB.TIdentity.G9e_SplitQ (126s)
+✔ [9027/9179] Built Phi2NB.TIdentity.G9g_HolomorphyIoc (126s)
+✔ [9028/9179] Built Phi2NB.TIdentity.G9h_HolomorphyIoi (126s)
+✔ [9029/9179] Built Phi2NB.PhiR.Fill.noMeromorphicExtensionAt_comp_sub_iff (127s)
+✔ [9030/9179] Built Phi2NB.PhiR.Fill.noMeromorphicExtensionAt_iff_of_eq_add_mul (127s)
+✔ [9031/9179] Built Phi2NB.TIdentity.G7b_LogDerivBound (126s)
+✔ [9032/9179] Built Phi2NB.TIdentity.G7c_LogDerivZetaBound (44s)
+✔ [9033/9179] Built Phi2NB.TIdentity.G7d_QcontBound (29s)
+✔ [9034/9179] Built Phi2NB.TIdentity.G8d_ContourShift (57s)
+✔ [9035/9179] Built Phi2NB.TIdentity.Assembly (61s)
+✔ [9036/9179] Built Phi2NB.TBoundary (60s)
+⚠ [9037/9179] Built Phi2NB.Phi2.Fill.ACommon (61s)
+warning: Phi2NB/Phi2/Fill/ACommon.lean:73:12: This simp argument is unused:
+  vonMangoldt_zero'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Phi2NB/Phi2/Fill/ACommon.lean:126:30: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Phi2NB/Phi2/Fill/ACommon.lean:142:42: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Phi2NB/Phi2/Fill/ACommon.lean:209:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Phi2NB/Phi2/Fill/ACommon.lean:208:16: This simp argument is unused:
+  vonMangoldt_zero'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9038/9179] Built Phi2NB.Phi2.Fill.differentiable_e1L_E2L (184s)
+✔ [9039/9179] Built Phi2NB.Phi2.Fill.FL_eq_verticalIntegral' (184s)
+✔ [9040/9179] Built Phi2NB.Phi2.Fill.verticalIntegral'_kernelL_shift (184s)
+✔ [9041/9179] Built Phi2NB.Phi2.Fill.norm_hL_le (184s)
+✔ [9042/9179] Built Phi2NB.Phi2.Fill.phi2_identity (184s)
+⚠ [9043/9179] Built Phi2NB.PhiR.Fill.QR_eq_sum (184s)
+warning: Phi2NB/PhiR/Fill/QR_eq_sum.lean:14:49: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9044/9179] Built Phi2NB.PhiR.Fill.differentiable_ER (184s)
+⚠ [9045/9179] Built Phi2NB.PhiR.Fill.norm_QR_le (184s)
+warning: Phi2NB/PhiR/Fill/norm_QR_le.lean:14:62: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9046/9179] Built Phi2NB.Paper2.M1.Fill.BCommon (185s)
+✔ [9047/9179] Built Phi2NB.Paper2.M1.Fill.verticalIntegral'_eq_add_sum_of_simplePoles (185s)
+⚠ [9048/9179] Built Phi2NB.PhiR.Fill.mellin_FL_pow (193s)
+warning: Phi2NB/PhiR/Fill/mellin_FL_pow.lean:15:12: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [9049/9179] Built Phi2NB.PhiR.Fill.Gamma_mul_PhiR_split (193s)
+warning: Phi2NB/PhiR/Fill/Gamma_mul_PhiR_split.lean:15:12: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [9050/9179] Built Phi2NB.Phi2.Proof.M1Continuation (38s)
+✔ [9051/9179] Built Phi2NB.Paper2.M1.Fill.sum_zetaMult_window_le (38s)
+✔ [9052/9179] Built Phi2NB.PhiR.Proof.M1Mellin (59s)
+✔ [9053/9179] Built Phi2NB.Paper2.M2.Fill.ACommon (59s)
+✔ [9054/9179] Built Phi2NB.Paper2.M2.Fill.zetaMult_le_log (59s)
+✔ [9055/9179] Built Phi2NB.PhiR.Fill.BCommon (58s)
+✔ [9056/9179] Built Phi2NB.Paper2.M2.Fill.ncard_zeros_im_Icc_le (58s)
+✔ [9057/9179] Built Phi2NB.PhiR.Fill.PhiR_eq_explicit (58s)
+✔ [9058/9179] Built Phi2NB.PhiR.Fill.exists_RR (58s)
+✔ [9059/9179] Built Phi2NB.PhiR.Fill.RR_bounded_halfStrip (58s)
+✔ [9060/9179] Built Phi2NB.PhiR.Fill.analyticOnNhd_PhiRc (46s)
+✔ [9061/9179] Built Phi2NB.PhiR.Fill.hasResidue_PhiRc (46s)
+✔ [9062/9179] Built Phi2NB.Paper2.M4b.Fill.BCommon (46s)
+✔ [9063/9179] Built Phi2NB.PhiR.Fill.riemannZeta_ne_zero_of_re_eq_zero (46s)
+✔ [9064/9179] Built Phi2NB.PhiR.Fill.analyticAt_phiRRest_line (46s)
+✔ [9065/9179] Built Phi2NB.PhiR.Proof.M2Continuation (25s)
+✔ [9066/9179] Built Phi2NB.Paper2.M4b.Fill.isBigO_mul_sub_residue (25s)
+✔ [9067/9179] Built Phi2NB.Paper2.M5.Fill.order_residue_of_codiscrete_line (42s)
+✔ [9068/9179] Built Phi2NB.PhiR.Proof.M4Reduction (42s)
+✔ [9069/9179] Built Phi2NB.Paper2.M5.Fill.norm_negLogDerivZeta_le_of_sep (42s)
+✔ [9070/9179] Built Phi2NB.Paper2.M5.Fill.exists_sep_height (43s)
+✔ [9071/9179] Built Phi2NB.Paper2.M5.Fill.QCommon (30s)
+✔ [9072/9179] Built Phi2NB.Paper2.M5.Fill.rectangleIntegral'_eq_sum_of_simplePoles_rect (49s)
+✔ [9073/9179] Built Phi2NB.Paper2.M5.Fill.summable_zeros_inv_sq (49s)
+✔ [9074/9179] Built Phi2NB.Paper2.M5.Fill.exists_ordinate_in_interval (61s)
+✔ [9075/9179] Built Phi2NB.Paper2.M5.Fill.noMeromorphicExtensionAt_of_line_blowup (61s)
+✔ [9076/9179] Built Phi2NB.Phi2.Fill.zetaMult_conj (78s)
+✔ [9077/9179] Built Phi2NB.Phi2.Fill.BCommon (70s)
+✔ [9078/9179] Built Phi2NB.Phi2.Fill.summable_norm_zeroCoef (92s)
+✔ [9079/9179] Built Phi2NB.Phi2.Fill.negLogDerivZeta_good_height (92s)
+✔ [9080/9179] Built Phi2NB.Phi2.Fill.rect_kernelL (92s)
+✔ [9081/9179] Built Phi2NB.Phi2.Fill.norm_verticalIntegral'_kernelL_two_fifths_le (92s)
+✔ [9082/9179] Built Phi2NB.Phi2.Fill.verticalIntegral'_kernelL_zero_shift (71s)
+✔ [9083/9179] Built Phi2NB.Phi2.Proof.M2Explicit (60s)
+✔ [9084/9179] Built Phi2NB.Phi2.Proof.M3Base (70s)
+✔ [9085/9179] Built Phi2NB.Phi2.Fill.norm_zeroSum_le (87s)
+⚠ [9086/9179] Built Phi2NB.Phi2.Fill.CCommon (87s)
+warning: Phi2NB/Phi2/Fill/CCommon.lean:19:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [9087/9179] Built Phi2NB.Phi2.Fill.tendsto_eta_cauchyT (87s)
+warning: Phi2NB/Phi2/Fill/tendsto_eta_cauchyT.lean:37:21: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Phi2NB/Phi2/Fill/tendsto_eta_cauchyT.lean:45:24: `if_neg` has been deprecated: Use `ite_eq_right` instead
+✔ [9088/9179] Built Phi2NB.Phi2.Fill.norm_Kc_le (73s)
+⚠ [9089/9179] Built Phi2NB.Phi2.Fill.integral_zeroSum_sq (73s)
+warning: Phi2NB/Phi2/Fill/integral_zeroSum_sq.lean:18:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [9090/9179] Built Phi2NB.Phi2.Fill.RrL_eq_cauchyT_add_Kc (71s)
+✔ [9091/9179] Built Phi2NB.Phi2.Proof.M3Radial (65s)
+✔ [9092/9179] Built Phi2NB.Phi2.Fill.norm_bKer (128s)
+✔ [9093/9179] Built Phi2NB.Phi2.Fill.DCommon (128s)
+✔ [9094/9179] Built Phi2NB.Phi2.Fill.Aidx_bin_le (128s)
+✔ [9095/9179] Built Phi2NB.Phi2.Fill.pairAtom_neg (128s)
+✔ [9096/9179] Built Phi2NB.PhiR.Fill.tendsto_eta_Phi2c (128s)
+✔ [9097/9179] Built Phi2NB.Phi2.Fill.bKer_cone (128s)
+✔ [9098/9179] Built Phi2NB.Phi2.Fill.pairAtom_eq_two_tsum (128s)
+✔ [9099/9179] Built Phi2NB.Phi2.Fill.norm_bKer_le (81s)
+✔ [9100/9179] Built Phi2NB.Phi2.Fill.sum_bKer_ne_zero (75s)
+✔ [9101/9179] Built Phi2NB.Phi2.Fill.pairAtom_ne_zero_of_large (197s)
+✔ [9102/9179] Built Phi2NB.Phi2.Fill.finite_exceptional (156s)
+✔ [9103/9179] Built Phi2NB.Phi2.Fill.exists_large_pair (156s)
+✔ [9104/9179] Built Phi2NB.Phi2.Proof.M5Boundary (153s)
+✔ [9105/9179] Built Phi2NB.PhiR.Proof.M3Boundary (126s)
+✔ [9106/9179] Built Phi2NB.Phi2.Statement (126s)
+✔ [9107/9179] Built Phi2NB.PhiR.Proof.M5Radial (116s)
+✔ [9108/9179] Built Phi2NB.PhiR.Statement (146s)
+✔ [9109/9179] Built Phi2NB.Phi2HInf.Defs (186s)
+✔ [9110/9179] Built Phi2NB.HInfSupport.Paper2.Defs (186s)
+✔ [9111/9179] Built Phi2NB.Phi2HInf.Proof.Defs (186s)
+✔ [9112/9179] Built Phi2NB.HInfSupport.BoundaryLemma (191s)
+✔ [9113/9179] Built Phi2NB.Phi2HInf.Fill.stirling_log (191s)
+✔ [9114/9179] Built Phi2NB.HInfSupport.Statements (191s)
+✔ [9115/9179] Built Phi2NB.HInfSupport.ResidueAPI (191s)
+✔ [9116/9179] Built Phi2NB.Phi2HInf.ZetaNoZeroIoo (191s)
+✔ [9117/9179] Built Phi2NB.Phi2HInf.Fill.pairCat_geometry (191s)
+✔ [9118/9179] Built Phi2NB.Phi2HInf.Proof.RDefs (149s)
+✔ [9119/9179] Built Phi2NB.Phi2HInf.PremiseCorrespondence (153s)
+✔ [9120/9179] Built Phi2NB.HInfSupport.Paper2.M1.Fill.sum_zetaMult_window_le (153s)
+✔ [9121/9179] Built Phi2NB.HInfSupport.Paper2.M1.Fill.Bsup_facts (153s)
+✔ [9122/9179] Built Phi2NB.HInfSupport.Paper2.M1.Fill.BCommon (153s)
+✔ [9123/9179] Built Phi2NB.HInfSupport.Phi2.Proof.M2Explicit (153s)
+⚠ [9124/9179] Built Phi2NB.Phi2HInf.Fill.norm_bKer_asymp (148s)
+warning: Phi2NB/Phi2HInf/Fill/norm_bKer_asymp.lean:24:15: This simp argument is unused:
+  norm_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [bMain, Complex.norm_exp, Complex.norm_real,
+    Real.norm_of_nonneg (bAmp_pos (b := b) (c := c) (τ := τ) hu).le]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: Phi2NB/Phi2HInf/Fill/norm_bKer_asymp.lean:62:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+✔ [9125/9179] Built Phi2NB.HInfSupport.Paper2.M2.Fill.zetaMult_le_log (255s)
+✔ [9126/9179] Built Phi2NB.HInfSupport.Paper2.M2.Fill.ncard_zeros_im_Icc_le (255s)
+✔ [9127/9179] Built Phi2NB.HInfSupport.Paper2.M5.Fill.norm_negLogDerivZeta_le_of_sep (255s)
+✔ [9128/9179] Built Phi2NB.HInfSupport.Paper2.M1.Fill.Bsup_lt_one_of_Hinf (255s)
+⚠ [9129/9179] Built Phi2NB.Phi2HInf.Fill.bKer_cone_hinf (255s)
+warning: Phi2NB/Phi2HInf/Fill/bKer_cone_hinf.lean:48:42: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Phi2NB/Phi2HInf/Fill/bKer_cone_hinf.lean:48:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Phi2NB/Phi2HInf/Fill/bKer_cone_hinf.lean:48:42: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [9130/9179] Built Phi2NB.Phi2HInf.Fill.norm_bKer_ratio_le (255s)
+✔ [9131/9179] Built Phi2NB.HInfSupport.Paper2.M1.Fill.Binf_le_Bsup_le_one (255s)
+✔ [9132/9179] Built Phi2NB.HInfSupport.Paper2.M1.Fill.finite_zeros_re_gt (255s)
+✔ [9133/9179] Built Phi2NB.HInfSupport.Paper2.M1.Fill.half_le_Binf (255s)
+⚠ [9134/9179] Built Phi2NB.Phi2HInf.Fill.r_finite_mellin (259s)
+warning: Phi2NB/Phi2HInf/Fill/r_finite_mellin.lean:104:56: Variable name `hr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9135/9179] Built Phi2NB.HInfSupport.Paper2.M5.Fill.summable_zeros_inv_sq (125s)
+✔ [9136/9179] Built Phi2NB.HInfSupport.Paper2.M5.Fill.QCommon (125s)
+✔ [9137/9179] Built Phi2NB.HInfSupport.Paper2.M5.Fill.exists_sep_height (125s)
+✔ [9138/9179] Built Phi2NB.Phi2HInf.Fill.collision_bin_le (125s)
+✔ [9139/9179] Built Phi2NB.HInfSupport.Paper2.M1.Fill.Bsup_attained (125s)
+✔ [9140/9179] Built Phi2NB.HInfSupport.Paper2.M2.Fill.Binf_eq_half_of_Hinf (125s)
+ℹ [9141/9179] Built Phi2NB.Phi2HInf.Fill.sum_bKer_ne_zero_hinf (126s)
+info: Phi2NB/Phi2HInf/Fill/sum_bKer_ne_zero_hinf.lean:245:0: '_private.Phi2NB.Phi2HInf.Fill.sum_bKer_ne_zero_hinf.0.GoldbachBoundaries.Phi2HInf.log_sq_le_four_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+⚠ [9142/9179] Built Phi2NB.Phi2HInf.Fill.summable_norm_zeroCoef_hinf (82s)
+warning: Phi2NB/Phi2HInf/Fill/summable_norm_zeroCoef_hinf.lean:15:59: Variable name `hStir` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hStir
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9143/9179] Built Phi2NB.Phi2HInf.Fill.negative_line (82s)
+✔ [9144/9179] Built Phi2NB.HInfSupport.Paper2.M1.Skeleton (82s)
+⚠ [9145/9179] Built Phi2NB.Phi2HInf.Fill.collision_family (81s)
+warning: Phi2NB/Phi2HInf/Fill/collision_family.lean:29:33: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Phi2NB/Phi2HInf/Fill/collision_family.lean:29:44: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Phi2NB/Phi2HInf/Fill/collision_family.lean:33:35: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Phi2NB/Phi2HInf/Fill/collision_family.lean:33:46: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Phi2NB/Phi2HInf/Fill/collision_family.lean:175:40: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [9146/9179] Built Phi2NB.Phi2HInf.Fill.cauchy_meromorphic (144s)
+warning: Phi2NB/Phi2HInf/Fill/cauchy_meromorphic.lean:91:35: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [9147/9179] Built Phi2NB.Phi2HInf.Fill.good_height (144s)
+✔ [9148/9179] Built Phi2NB.Phi2HInf.Fill.critical_basic (144s)
+✔ [9149/9179] Built Phi2NB.Phi2HInf.Fill.critical_decomposition (144s)
+✔ [9150/9179] Built Phi2NB.HInfSupport.Paper2.Statements (144s)
+⚠ [9151/9179] Built Phi2NB.Phi2HInf.Fill.hasResidue_C (144s)
+warning: Phi2NB/Phi2HInf/Fill/hasResidue_C.lean:35:25: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Phi2NB/Phi2HInf/Fill/hasResidue_C.lean:36:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [9152/9179] Built Phi2NB.Phi2HInf.Fill.rect_regularization (144s)
+warning: Phi2NB/Phi2HInf/Fill/rect_regularization.lean:103:21: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Phi2NB/Phi2HInf/Fill/rect_regularization.lean:119:41: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Phi2NB/Phi2HInf/Fill/rect_regularization.lean:119:53: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Phi2NB/Phi2HInf/Fill/rect_regularization.lean:124:16: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Phi2NB/Phi2HInf/Fill/rect_regularization.lean:124:28: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Phi2NB/Phi2HInf/Fill/rect_regularization.lean:132:13: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Phi2NB/Phi2HInf/Fill/rect_regularization.lean:132:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [9153/9179] Built Phi2NB.Phi2HInf.Fill.zero_mellin (144s)
+warning: Phi2NB/Phi2HInf/Fill/zero_mellin.lean:88:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Phi2NB/Phi2HInf/Fill/zero_mellin.lean:96:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [9154/9179] Built Phi2NB.Phi2HInf.Fill.meromorphicOn_M0 (157s)
+✔ [9155/9179] Built Phi2NB.Phi2HInf.Fill.differentiableOn_criticalC (157s)
+⚠ [9156/9179] Built Phi2NB.Phi2HInf.Fill.exists_large_critical_pair (157s)
+warning: Phi2NB/Phi2HInf/Fill/exists_large_critical_pair.lean:34:6: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [9157/9179] Built Phi2NB.Phi2HInf.Fill.tendsto_eta_criticalC (157s)
+✔ [9158/9179] Built Phi2NB.Phi2HInf.Fill.meromorphicOn_exceptionalC (157s)
+⚠ [9159/9179] Built Phi2NB.Phi2HInf.Fill.analyticOn_M0_strip (157s)
+warning: Phi2NB/Phi2HInf/Fill/analyticOn_M0_strip.lean:40:29: Variable name `hH` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hH
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Phi2NB/Phi2HInf/Fill/analyticOn_M0_strip.lean:69:55: This simp argument is unused:
+  Pi.div_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [M0, phi2Main, Pi.sub_apply, Pi.mul_apply, Pi.inv_apply, id_eq, div_eq_mul_inv, mul_inv, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [9160/9179] Built Phi2NB.Phi2HInf.Proof.M3Cone (157s)
+✔ [9161/9179] Built Phi2NB.Phi2HInf.Fill.contour_regularization (157s)
+⚠ [9162/9179] Built Phi2NB.Phi2HInf.Proof.M1Regularization (57s)
+warning: Phi2NB/Phi2HInf/Proof/M1Regularization.lean:36:19: Variable name `hZ1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hZ1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Phi2NB/Phi2HInf/Proof/M1Regularization.lean:36:30: Variable name `hZ2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hZ2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Phi2NB/Phi2HInf/Proof/M1Regularization.lean:36:41: Variable name `hZ3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hZ3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Phi2NB/Phi2HInf/Proof/M1Regularization.lean:36:52: Variable name `hStir` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hStir
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9163/9179] Built Phi2NB.Phi2HInf.Fill.phi2_hinf_continuation (63s)
+✔ [9164/9179] Built Phi2NB.Phi2HInf.Fill.r_cutoff (63s)
+✔ [9165/9179] Built Phi2NB.Phi2HInf.Proof.M4Critical (63s)
+✔ [9166/9179] Built Phi2NB.Phi2HInf.Proof.M2Catalogue (63s)
+⚠ [9167/9179] Built Phi2NB.Phi2HInf.Fill.r_remainder (68s)
+warning: Phi2NB/Phi2HInf/Fill/r_remainder.lean:84:13: Variable name `hr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [9168/9179] Built Phi2NB.Phi2HInf.Fill.critical_boundary (68s)
+✔ [9169/9179] Built Phi2NB.Phi2HInf.Fill.interior_poles (68s)
+✔ [9170/9179] Built Phi2NB.Phi2HInf.Fill.pole_twoBsup (68s)
+✔ [9171/9179] Built Phi2NB.Phi2HInf.Fill.r_identity (69s)
+✔ [9172/9179] Built Phi2NB.Phi2HInf.Proof.M5Boundary (69s)
+✔ [9173/9179] Built Phi2NB.Phi2HInf.Fill.pole_twoBsup_rh (69s)
+✔ [9174/9179] Built Phi2NB.Phi2HInf.Fill.r_boundary (62s)
+✔ [9175/9179] Built Phi2NB.Phi2HInf.PoleTwoBsup (62s)
+✔ [9176/9179] Built Phi2NB.Phi2HInf.Statements (47s)
+✔ [9177/9179] Built Phi2NB.Phi2HInf.Classical (45s)
+✔ [9178/9179] Built Phi2NB (55s)
+Build completed successfully (9179 jobs).

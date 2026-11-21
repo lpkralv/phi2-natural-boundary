@@ -1,16 +1,21 @@
-import Phi2NB.Phi2.Statement
+import Phi2NB.PhiR.Statement
+import Phi2NB.Phi2HInf.PremiseCorrespondence
+import Phi2NB.Phi2HInf.Classical
+import Phi2NB.Phi2HInf.PoleTwoBsup
 
 /-!
-# Phi2NB: under RH, `Re s = 1` is a natural boundary of `Φ₂`
+# Phi2NB v1.2: natural boundaries under H∞, with the RH results retained
 
-Under RH (with the classical premises RiemannVonMangoldt, LogDerivZetaLocal and `LittlewoodGap`), `Re s = 1` is a natural boundary of
-`Φ₂(s) = ∑_{m,n ≥ 1} Λ(m)Λ(n)(m+n)^{-s}`: `GoldbachBoundaries.phi2_natural_boundary` in `Phi2NB/Phi2/Statement.lean`.
+This entry point imports the complete release: the v1.1 RH theorems for Φ₂ and Φ_r,
+the H∞ theorems for both series, their classical-form corollaries, and the real pole at 2B
+and the RH criterion for Φ₂ under H∞.
+Plain `lake build` builds the single default library target `Phi2NB`.
 
-The library holds the declarations that the type and the proof of `phi2_natural_boundary` use, transitively, and
-nothing else. The declarations keep the namespace `GoldbachBoundaries` (and its sub-namespaces) of the larger
-development they were extracted from; the directory layout follows that development's modules. The only
-dependencies are Mathlib and PrimeNumberTheoremAnd.
+The H∞ development shares the v1.1 definitions and proofs. Extracted source helpers
+whose types take the stronger counting premise `Paper2.Z2` have the suffix
+`_fullZ2`; the original v1.1 declarations keep their names and statements.
+The four public H∞ theorem statements keep their original premise names and types.
 
-Warning: the larger development defines the same fully qualified names, so the two must never be imported into
-one file or one build target.
+Do not import the unextracted `GoldbachBoundaries` source tree alongside this
+release: it independently defines names that this library already supplies.
 -/

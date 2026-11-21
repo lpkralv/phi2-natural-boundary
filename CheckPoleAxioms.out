@@ -1,0 +1,262 @@
+'GoldbachBoundaries.Phi2HInf.zetaNoZeroIoo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.analyticAt_M0_of_not_mem_phi2Poles' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GoldbachBoundaries.Phi2HInf.ofReal_not_mem_phi2Poles' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.hasResidue_Phi2cHInf_of_not_mem_phi2Poles' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GoldbachBoundaries.Phi2HInf.exists_rightZero_of_offLine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.Bsup_attained_of_offLine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.collision_twoBsup_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.collisionTwoBsupEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.zeroCoef_mul_zeroCoef_conj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.collisionAtom_twoBsup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.collisionAtom_twoBsup_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.hasResidue_Phi2cHInf_twoBsup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.not_analyticAt_Phi2cHInf_twoBsup' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GoldbachBoundaries.Phi2HInf.analyticAt_cauchy_of_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.analyticAt_C_of_not_pairSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.analyticAt_Phi2cHInf_of_not_pole' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GoldbachBoundaries.Phi2HInf.exists_trivial_of_riemannZeta_eq_zero_of_re_nonpos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GoldbachBoundaries.Phi2HInf.riemannHypothesis_iff_nontrivialZeros' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GoldbachBoundaries.Phi2HInf.analyticAt_Phi2cHInf_real_of_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.riemannHypothesis_iff_analyticAt_Phi2cHInf_real' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup_of_continuation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole_of_continuation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+GoldbachBoundaries.Phi2HInf.zetaNoZeroIoo : GoldbachBoundaries.Phi2HInf.ZetaNoZeroIoo
+GoldbachBoundaries.Phi2HInf.analyticAt_M0_of_not_mem_phi2Poles : GoldbachBoundaries.Paper2.Z1 →
+  GoldbachBoundaries.Paper2.Z2 →
+    GoldbachBoundaries.Phi2HInf.StirlingStrip →
+      ∀ {s : ℂ}, 1 < s.re → s ∉ GoldbachBoundaries.phi2Poles → AnalyticAt ℂ GoldbachBoundaries.Phi2HInf.M0 s
+GoldbachBoundaries.Phi2HInf.ofReal_not_mem_phi2Poles : GoldbachBoundaries.Phi2HInf.ZetaNoZeroIoo →
+  ∀ {x : ℝ}, 1 < x → x < 2 → ↑x ∉ GoldbachBoundaries.phi2Poles
+GoldbachBoundaries.Phi2HInf.hasResidue_Phi2cHInf_of_not_mem_phi2Poles : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Phi2HInf.StirlingStrip →
+          ∀ {s : ℂ},
+            1 < s.re →
+              s ∉ GoldbachBoundaries.phi2Poles →
+                GoldbachBoundaries.HasResidue GoldbachBoundaries.Phi2HInf.Phi2cHInf s
+                  (GoldbachBoundaries.Phi2HInf.collisionAtom s / Complex.Gamma s)
+GoldbachBoundaries.Phi2HInf.exists_rightZero_of_offLine : GoldbachBoundaries.Paper2.Z1 →
+  (∃ ρ ∈ GoldbachBoundaries.NontrivialZeros, ρ.re ≠ 1 / 2) → ∃ ρ ∈ GoldbachBoundaries.NontrivialZeros, 1 / 2 < ρ.re
+GoldbachBoundaries.Phi2HInf.Bsup_attained_of_offLine : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    (∃ ρ ∈ GoldbachBoundaries.NontrivialZeros, ρ.re ≠ 1 / 2) →
+      1 / 2 < GoldbachBoundaries.Paper2.Bsup ∧
+        GoldbachBoundaries.Paper2.Bsup < 1 ∧
+          {ρ | ρ ∈ GoldbachBoundaries.NontrivialZeros ∧ ρ.re = GoldbachBoundaries.Paper2.Bsup}.Finite ∧
+            {ρ | ρ ∈ GoldbachBoundaries.NontrivialZeros ∧ ρ.re = GoldbachBoundaries.Paper2.Bsup}.Nonempty
+GoldbachBoundaries.Phi2HInf.collision_twoBsup_iff : ∀
+  (p : ↑GoldbachBoundaries.NontrivialZeros × ↑GoldbachBoundaries.NontrivialZeros),
+  ↑p.1 + ↑p.2 = 2 * ↑GoldbachBoundaries.Paper2.Bsup ↔
+    (↑p.1).re = GoldbachBoundaries.Paper2.Bsup ∧ ↑p.2 = (starRingEnd ℂ) ↑p.1
+GoldbachBoundaries.Phi2HInf.collisionTwoBsupEquiv : GoldbachBoundaries.Phi2HInf.collisionIdx
+    (2 * ↑GoldbachBoundaries.Paper2.Bsup) ≃
+  { ρ // (↑ρ).re = GoldbachBoundaries.Paper2.Bsup }
+@GoldbachBoundaries.Phi2HInf.zeroCoef_mul_zeroCoef_conj : ∀ {ρ : ℂ},
+  ρ ∈ GoldbachBoundaries.NontrivialZeros →
+    GoldbachBoundaries.Phi2Proof.zeroCoef ρ * GoldbachBoundaries.Phi2Proof.zeroCoef ((starRingEnd ℂ) ρ) =
+      ↑(↑(GoldbachBoundaries.zetaMult ρ) ^ 2 * ‖Complex.Gamma ρ‖ ^ 2)
+GoldbachBoundaries.Phi2HInf.collisionAtom_twoBsup : GoldbachBoundaries.Phi2HInf.collisionAtom
+    (2 * ↑GoldbachBoundaries.Paper2.Bsup) =
+  ↑(∑' (ρ : { ρ // (↑ρ).re = GoldbachBoundaries.Paper2.Bsup }),
+      ↑(GoldbachBoundaries.zetaMult ↑↑ρ) ^ 2 * ‖Complex.Gamma ↑↑ρ‖ ^ 2)
+GoldbachBoundaries.Phi2HInf.collisionAtom_twoBsup_pos : {ρ |
+      ρ ∈ GoldbachBoundaries.NontrivialZeros ∧ ρ.re = GoldbachBoundaries.Paper2.Bsup}.Finite →
+  {ρ | ρ ∈ GoldbachBoundaries.NontrivialZeros ∧ ρ.re = GoldbachBoundaries.Paper2.Bsup}.Nonempty →
+    0 <
+      ∑' (ρ : { ρ // (↑ρ).re = GoldbachBoundaries.Paper2.Bsup }),
+        ↑(GoldbachBoundaries.zetaMult ↑↑ρ) ^ 2 * ‖Complex.Gamma ↑↑ρ‖ ^ 2
+GoldbachBoundaries.Phi2HInf.hasResidue_Phi2cHInf_twoBsup : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Phi2HInf.StirlingStrip →
+          GoldbachBoundaries.Phi2HInf.ZetaNoZeroIoo →
+            (∃ ρ ∈ GoldbachBoundaries.NontrivialZeros, ρ.re ≠ 1 / 2) →
+              (1 / 2 < GoldbachBoundaries.Paper2.Bsup ∧ GoldbachBoundaries.Paper2.Bsup < 1) ∧
+                ({ρ | ρ ∈ GoldbachBoundaries.NontrivialZeros ∧ ρ.re = GoldbachBoundaries.Paper2.Bsup}.Finite ∧
+                    {ρ | ρ ∈ GoldbachBoundaries.NontrivialZeros ∧ ρ.re = GoldbachBoundaries.Paper2.Bsup}.Nonempty) ∧
+                  (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) =
+                        ↑(∑' (ρ : { ρ // (↑ρ).re = GoldbachBoundaries.Paper2.Bsup }),
+                            ↑(GoldbachBoundaries.zetaMult ↑↑ρ) ^ 2 * ‖Complex.Gamma ↑↑ρ‖ ^ 2) ∧
+                      0 < (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup)).re ∧
+                        (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup)).im = 0) ∧
+                    GoldbachBoundaries.HasResidue GoldbachBoundaries.Phi2HInf.Phi2cHInf
+                        (2 * ↑GoldbachBoundaries.Paper2.Bsup)
+                        (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) /
+                          Complex.Gamma (2 * ↑GoldbachBoundaries.Paper2.Bsup)) ∧
+                      (0 <
+                            (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) /
+                                Complex.Gamma (2 * ↑GoldbachBoundaries.Paper2.Bsup)).re ∧
+                          (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) /
+                                Complex.Gamma (2 * ↑GoldbachBoundaries.Paper2.Bsup)).im =
+                            0) ∧
+                        meromorphicOrderAt GoldbachBoundaries.Phi2HInf.Phi2cHInf (2 * ↑GoldbachBoundaries.Paper2.Bsup) =
+                            ↑(-1) ∧
+                          ¬AnalyticAt ℂ GoldbachBoundaries.Phi2HInf.Phi2cHInf (2 * ↑GoldbachBoundaries.Paper2.Bsup)
+GoldbachBoundaries.Phi2HInf.not_analyticAt_Phi2cHInf_twoBsup : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Phi2HInf.StirlingStrip →
+          GoldbachBoundaries.Phi2HInf.ZetaNoZeroIoo →
+            (∃ ρ ∈ GoldbachBoundaries.NontrivialZeros, ρ.re ≠ 1 / 2) →
+              ∃ x, 1 < x ∧ x < 2 ∧ ¬AnalyticAt ℂ GoldbachBoundaries.Phi2HInf.Phi2cHInf ↑x
+@GoldbachBoundaries.Phi2HInf.analyticAt_cauchy_of_gap : ∀ {ι : Type} (a p : ι → ℂ),
+  (Summable fun i => ‖a i‖) →
+    ∀ {z : ℂ} {r d : ℝ},
+      0 < r →
+        0 < d →
+          ∀ (E : Finset ι),
+            (∀ w ∈ Metric.ball z r, ∀ i ∉ E, d ≤ ‖w - p i‖) →
+              (∀ i ∈ E, p i ≠ z) → AnalyticAt ℂ (fun w => ∑' (i : ι), a i / (w - p i)) z
+GoldbachBoundaries.Phi2HInf.analyticAt_C_of_not_pairSum : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Phi2HInf.StirlingStrip →
+        ∀ {s : ℂ},
+          1 < s.re →
+            (∀ (p : ↑GoldbachBoundaries.NontrivialZeros × ↑GoldbachBoundaries.NontrivialZeros), ↑p.1 + ↑p.2 ≠ s) →
+              AnalyticAt ℂ GoldbachBoundaries.Phi2HInf.C s
+GoldbachBoundaries.Phi2HInf.analyticAt_Phi2cHInf_of_not_pole : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Phi2HInf.StirlingStrip →
+          ∀ {s : ℂ},
+            1 < s.re →
+              s ∉ GoldbachBoundaries.phi2Poles →
+                (∀ (p : ↑GoldbachBoundaries.NontrivialZeros × ↑GoldbachBoundaries.NontrivialZeros), ↑p.1 + ↑p.2 ≠ s) →
+                  AnalyticAt ℂ GoldbachBoundaries.Phi2HInf.Phi2cHInf s
+@GoldbachBoundaries.Phi2HInf.exists_trivial_of_riemannZeta_eq_zero_of_re_nonpos : ∀ {s : ℂ},
+  riemannZeta s = 0 → s.re ≤ 0 → ∃ n, s = -2 * (↑n + 1)
+GoldbachBoundaries.Phi2HInf.riemannHypothesis_iff_nontrivialZeros : RiemannHypothesis ↔
+  ∀ ρ ∈ GoldbachBoundaries.NontrivialZeros, ρ.re = 1 / 2
+GoldbachBoundaries.Phi2HInf.analyticAt_Phi2cHInf_real_of_RH : RiemannHypothesis →
+  GoldbachBoundaries.Paper2.Z2 →
+    GoldbachBoundaries.Paper2.Z3 →
+      GoldbachBoundaries.Phi2HInf.StirlingStrip →
+        GoldbachBoundaries.Phi2HInf.ZetaNoZeroIoo →
+          ∀ {x : ℝ}, 1 < x → x < 2 → AnalyticAt ℂ GoldbachBoundaries.Phi2HInf.Phi2cHInf ↑x
+GoldbachBoundaries.Phi2HInf.riemannHypothesis_iff_analyticAt_Phi2cHInf_real : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Phi2HInf.StirlingStrip →
+          GoldbachBoundaries.Phi2HInf.ZetaNoZeroIoo →
+            (RiemannHypothesis ↔ ∀ (x : ℝ), 1 < x → x < 2 → AnalyticAt ℂ GoldbachBoundaries.Phi2HInf.Phi2cHInf ↑x)
+GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Phi2HInf.StirlingStrip →
+          GoldbachBoundaries.Phi2HInf.ZetaNoZeroIoo →
+            (∃ ρ ∈ GoldbachBoundaries.NontrivialZeros, ρ.re ≠ 1 / 2) →
+              (1 / 2 < GoldbachBoundaries.Paper2.Bsup ∧ GoldbachBoundaries.Paper2.Bsup < 1) ∧
+                ({ρ | ρ ∈ GoldbachBoundaries.NontrivialZeros ∧ ρ.re = GoldbachBoundaries.Paper2.Bsup}.Finite ∧
+                    {ρ | ρ ∈ GoldbachBoundaries.NontrivialZeros ∧ ρ.re = GoldbachBoundaries.Paper2.Bsup}.Nonempty) ∧
+                  (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) =
+                        ↑(∑' (ρ : { ρ // (↑ρ).re = GoldbachBoundaries.Paper2.Bsup }),
+                            ↑(GoldbachBoundaries.zetaMult ↑↑ρ) ^ 2 * ‖Complex.Gamma ↑↑ρ‖ ^ 2) ∧
+                      0 < (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup)).re ∧
+                        (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup)).im = 0) ∧
+                    GoldbachBoundaries.HasResidue GoldbachBoundaries.Phi2HInf.Phi2cHInf
+                        (2 * ↑GoldbachBoundaries.Paper2.Bsup)
+                        (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) /
+                          Complex.Gamma (2 * ↑GoldbachBoundaries.Paper2.Bsup)) ∧
+                      (0 <
+                            (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) /
+                                Complex.Gamma (2 * ↑GoldbachBoundaries.Paper2.Bsup)).re ∧
+                          (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) /
+                                Complex.Gamma (2 * ↑GoldbachBoundaries.Paper2.Bsup)).im =
+                            0) ∧
+                        meromorphicOrderAt GoldbachBoundaries.Phi2HInf.Phi2cHInf (2 * ↑GoldbachBoundaries.Paper2.Bsup) =
+                            ↑(-1) ∧
+                          ¬AnalyticAt ℂ GoldbachBoundaries.Phi2HInf.Phi2cHInf (2 * ↑GoldbachBoundaries.Paper2.Bsup)
+GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup' : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Phi2HInf.StirlingStrip →
+          (∃ ρ ∈ GoldbachBoundaries.NontrivialZeros, ρ.re ≠ 1 / 2) →
+            (1 / 2 < GoldbachBoundaries.Paper2.Bsup ∧ GoldbachBoundaries.Paper2.Bsup < 1) ∧
+              ({ρ | ρ ∈ GoldbachBoundaries.NontrivialZeros ∧ ρ.re = GoldbachBoundaries.Paper2.Bsup}.Finite ∧
+                  {ρ | ρ ∈ GoldbachBoundaries.NontrivialZeros ∧ ρ.re = GoldbachBoundaries.Paper2.Bsup}.Nonempty) ∧
+                (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) =
+                      ↑(∑' (ρ : { ρ // (↑ρ).re = GoldbachBoundaries.Paper2.Bsup }),
+                          ↑(GoldbachBoundaries.zetaMult ↑↑ρ) ^ 2 * ‖Complex.Gamma ↑↑ρ‖ ^ 2) ∧
+                    0 < (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup)).re ∧
+                      (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup)).im = 0) ∧
+                  GoldbachBoundaries.HasResidue GoldbachBoundaries.Phi2HInf.Phi2cHInf
+                      (2 * ↑GoldbachBoundaries.Paper2.Bsup)
+                      (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) /
+                        Complex.Gamma (2 * ↑GoldbachBoundaries.Paper2.Bsup)) ∧
+                    (0 <
+                          (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) /
+                              Complex.Gamma (2 * ↑GoldbachBoundaries.Paper2.Bsup)).re ∧
+                        (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) /
+                              Complex.Gamma (2 * ↑GoldbachBoundaries.Paper2.Bsup)).im =
+                          0) ∧
+                      meromorphicOrderAt GoldbachBoundaries.Phi2HInf.Phi2cHInf (2 * ↑GoldbachBoundaries.Paper2.Bsup) =
+                          ↑(-1) ∧
+                        ¬AnalyticAt ℂ GoldbachBoundaries.Phi2HInf.Phi2cHInf (2 * ↑GoldbachBoundaries.Paper2.Bsup)
+GoldbachBoundaries.Phi2HInf.phi2_hinf_pole_twoBsup_of_continuation : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Phi2HInf.StirlingStrip →
+          GoldbachBoundaries.Phi2HInf.ZetaNoZeroIoo →
+            (∃ ρ ∈ GoldbachBoundaries.NontrivialZeros, ρ.re ≠ 1 / 2) →
+              ∀ (F : ℂ → ℂ),
+                MeromorphicOn F GoldbachBoundaries.HH →
+                  F =ᶠ[Filter.codiscreteWithin (GoldbachBoundaries.halfPlane 2)] GoldbachBoundaries.Phi2 →
+                    GoldbachBoundaries.HasResidue F (2 * ↑GoldbachBoundaries.Paper2.Bsup)
+                        (GoldbachBoundaries.Phi2HInf.collisionAtom (2 * ↑GoldbachBoundaries.Paper2.Bsup) /
+                          Complex.Gamma (2 * ↑GoldbachBoundaries.Paper2.Bsup)) ∧
+                      meromorphicOrderAt F (2 * ↑GoldbachBoundaries.Paper2.Bsup) = ↑(-1)
+GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Phi2HInf.StirlingStrip →
+          GoldbachBoundaries.Phi2HInf.ZetaNoZeroIoo →
+            (RiemannHypothesis ↔ ∀ (x : ℝ), 1 < x → x < 2 → AnalyticAt ℂ GoldbachBoundaries.Phi2HInf.Phi2cHInf ↑x)
+GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole' : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Phi2HInf.StirlingStrip →
+          (RiemannHypothesis ↔ ∀ (x : ℝ), 1 < x → x < 2 → AnalyticAt ℂ GoldbachBoundaries.Phi2HInf.Phi2cHInf ↑x)
+GoldbachBoundaries.Phi2HInf.phi2_hinf_rh_iff_no_real_pole_of_continuation : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Phi2HInf.StirlingStrip →
+          GoldbachBoundaries.Phi2HInf.ZetaNoZeroIoo →
+            ∀ (F : ℂ → ℂ),
+              MeromorphicOn F GoldbachBoundaries.HH →
+                F =ᶠ[Filter.codiscreteWithin (GoldbachBoundaries.halfPlane 2)] GoldbachBoundaries.Phi2 →
+                  (RiemannHypothesis ↔ ∀ (x : ℝ), 1 < x → x < 2 → 0 ≤ meromorphicOrderAt F ↑x)

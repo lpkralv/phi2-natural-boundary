@@ -1,0 +1,38 @@
+{
+  "started_utc": "2026-11-21T02:19:38.312832+00:00",
+  "commands": [
+    {
+      "command": [
+        "lake",
+        "clean"
+      ],
+      "output": "CleanV12.out",
+      "exit_code": 0,
+      "started_utc": "2026-11-21T02:19:38.312966+00:00",
+      "finished_utc": "2026-11-21T02:19:41.571655+00:00"
+    },
+    {
+      "command": [
+        "lake",
+        "exe",
+        "cache",
+        "get"
+      ],
+      "output": "CacheGet.out",
+      "exit_code": 0,
+      "started_utc": "2026-11-21T02:19:41.572099+00:00",
+      "finished_utc": "2026-11-21T02:20:37.221733+00:00"
+    },
+    {
+      "command": [
+        "lake",
+        "build"
+      ],
+      "output": "BuildV12Clean.out",
+      "exit_code": 0,
+      "started_utc": "2026-11-21T02:20:37.222184+00:00",
+      "finished_utc": "2026-11-21T03:41:11.625216+00:00"
+    }
+  ],
+  "jobs": 9179
+}

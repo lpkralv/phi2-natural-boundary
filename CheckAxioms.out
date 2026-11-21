@@ -1,5 +1,23 @@
 'GoldbachBoundaries.phi2_natural_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
 'GoldbachBoundaries.phi2_natural_boundary_classical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2Proof.phi2_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2Proof.tendsto_eta_Hphi2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.phiR_natural_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.phiR_natural_boundary_classical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.phiR_natural_boundary_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.phiR_singular_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.phiR_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.phiR_radial_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.PhiRProof.phiR_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.PhiRProof.tendsto_eta_Phi2c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.phi2_hinf_natural_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.phiR_hinf_natural_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GoldbachBoundaries.Phi2HInf.phi2_hinf_natural_boundary_classical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'GoldbachBoundaries.Phi2HInf.phiR_hinf_natural_boundary_classical' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 GoldbachBoundaries.phi2_natural_boundary : RiemannHypothesis →
   GoldbachBoundaries.Paper2.RiemannVonMangoldt →
     GoldbachBoundaries.Paper2.LogDerivZetaLocal →
@@ -28,3 +46,188 @@ GoldbachBoundaries.phi2_natural_boundary_classical : RiemannHypothesis →
                   ¬∃ g,
                       MeromorphicOn g (Metric.ball (1 + ↑τ * Complex.I) r) ∧
                         Set.EqOn g F (Metric.ball (1 + ↑τ * Complex.I) r ∩ GoldbachBoundaries.HH)
+GoldbachBoundaries.Phi2Proof.phi2_continuation : RiemannHypothesis →
+  MeromorphicOn GoldbachBoundaries.Phi2Proof.Phi2c GoldbachBoundaries.HH ∧
+    Set.EqOn GoldbachBoundaries.Phi2Proof.Phi2c GoldbachBoundaries.Phi2 (GoldbachBoundaries.halfPlane 2) ∧
+      AnalyticOnNhd ℂ GoldbachBoundaries.Phi2Proof.Phi2c (GoldbachBoundaries.HH \ GoldbachBoundaries.phi2Poles) ∧
+        (∀ α ∈ GoldbachBoundaries.phi2Poles, meromorphicOrderAt GoldbachBoundaries.Phi2Proof.Phi2c α = -1) ∧
+          ∃ res,
+            (∀ α ∈ GoldbachBoundaries.phi2Poles,
+                GoldbachBoundaries.HasResidue GoldbachBoundaries.Phi2Proof.Phi2c α (res α)) ∧
+              GoldbachBoundaries.HasPhi2Residues res ∧ ∀ α ∈ GoldbachBoundaries.phi2Poles, res α ≠ 0
+GoldbachBoundaries.Phi2Proof.tendsto_eta_Hphi2 : RiemannHypothesis →
+  GoldbachBoundaries.Paper2.RiemannVonMangoldt →
+    GoldbachBoundaries.Paper2.LogDerivZetaLocal →
+      ∀ (τ : ℝ),
+        Filter.Tendsto (fun η => ↑η * GoldbachBoundaries.Phi2Proof.Hphi2 (1 + ↑τ * Complex.I + ↑η))
+          (nhdsWithin 0 (Set.Ioi 0))
+          (nhds (GoldbachBoundaries.Phi2Proof.pairAtom τ / Complex.Gamma (1 + ↑τ * Complex.I)))
+GoldbachBoundaries.phiR_natural_boundary : RiemannHypothesis →
+  GoldbachBoundaries.Paper2.RiemannVonMangoldt →
+    GoldbachBoundaries.Paper2.LogDerivZetaLocal →
+      GoldbachBoundaries.Paper2.LittlewoodGap →
+        ∀ {r : ℕ},
+          2 ≤ r →
+            (∃ F,
+                MeromorphicOn F (GoldbachBoundaries.halfPlane (↑r - 1)) ∧
+                  Set.EqOn F (GoldbachBoundaries.PhiR r) (GoldbachBoundaries.halfPlane ↑r) ∧
+                    AnalyticOnNhd ℂ F (GoldbachBoundaries.halfPlane (↑r - 1) \ GoldbachBoundaries.phiRPoles r) ∧
+                      (∀ α ∈ GoldbachBoundaries.phiRPoles r, meromorphicOrderAt F α = -1) ∧
+                        ∃ res,
+                          (∀ α ∈ GoldbachBoundaries.phiRPoles r, GoldbachBoundaries.HasResidue F α (res α)) ∧
+                            GoldbachBoundaries.HasPhiRResidues r res ∧
+                              ∀ α ∈ GoldbachBoundaries.phiRPoles r, res α ≠ 0) ∧
+              ∀ (F : ℂ → ℂ),
+                MeromorphicOn F (GoldbachBoundaries.halfPlane (↑r - 1)) →
+                  F =ᶠ[Filter.codiscreteWithin (GoldbachBoundaries.halfPlane ↑r)] GoldbachBoundaries.PhiR r →
+                    GoldbachBoundaries.IsNaturalBoundary F (GoldbachBoundaries.halfPlane (↑r - 1))
+                      (GoldbachBoundaries.lineAt (↑r - 1))
+GoldbachBoundaries.phiR_natural_boundary_classical : RiemannHypothesis →
+  GoldbachBoundaries.Paper2.RiemannVonMangoldt →
+    GoldbachBoundaries.Paper2.LogDerivZetaLocal →
+      GoldbachBoundaries.Paper2.LittlewoodGap →
+        ∀ {r : ℕ},
+          2 ≤ r →
+            ∀ (F : ℂ → ℂ),
+              MeromorphicOn F (GoldbachBoundaries.halfPlane (↑r - 1)) →
+                Set.EqOn F (GoldbachBoundaries.PhiR r) (GoldbachBoundaries.halfPlane ↑r) →
+                  ∀ (τ ε : ℝ),
+                    0 < ε →
+                      ¬∃ g,
+                          MeromorphicOn g (Metric.ball (↑r - 1 + ↑τ * Complex.I) ε) ∧
+                            Set.EqOn g F
+                              (Metric.ball (↑r - 1 + ↑τ * Complex.I) ε ∩ GoldbachBoundaries.halfPlane (↑r - 1))
+GoldbachBoundaries.phiR_natural_boundary_two : RiemannHypothesis →
+  GoldbachBoundaries.Paper2.RiemannVonMangoldt →
+    GoldbachBoundaries.Paper2.LogDerivZetaLocal →
+      GoldbachBoundaries.Paper2.LittlewoodGap →
+        (∃ F,
+            MeromorphicOn F (GoldbachBoundaries.halfPlane (↑2 - 1)) ∧
+              Set.EqOn F (GoldbachBoundaries.PhiR 2) (GoldbachBoundaries.halfPlane ↑2) ∧
+                AnalyticOnNhd ℂ F (GoldbachBoundaries.halfPlane (↑2 - 1) \ GoldbachBoundaries.phiRPoles 2) ∧
+                  (∀ α ∈ GoldbachBoundaries.phiRPoles 2, meromorphicOrderAt F α = -1) ∧
+                    ∃ res,
+                      (∀ α ∈ GoldbachBoundaries.phiRPoles 2, GoldbachBoundaries.HasResidue F α (res α)) ∧
+                        GoldbachBoundaries.HasPhiRResidues 2 res ∧ ∀ α ∈ GoldbachBoundaries.phiRPoles 2, res α ≠ 0) ∧
+          ∀ (F : ℂ → ℂ),
+            MeromorphicOn F (GoldbachBoundaries.halfPlane (↑2 - 1)) →
+              F =ᶠ[Filter.codiscreteWithin (GoldbachBoundaries.halfPlane ↑2)] GoldbachBoundaries.PhiR 2 →
+                GoldbachBoundaries.IsNaturalBoundary F (GoldbachBoundaries.halfPlane (↑2 - 1))
+                  (GoldbachBoundaries.lineAt (↑2 - 1))
+GoldbachBoundaries.phiR_singular_iff : RiemannHypothesis →
+  ∀ {r : ℕ},
+    2 ≤ r →
+      ∀ (F : ℂ → ℂ),
+        MeromorphicOn F (GoldbachBoundaries.halfPlane (↑r - 1)) →
+          F =ᶠ[Filter.codiscreteWithin (GoldbachBoundaries.halfPlane ↑r)] GoldbachBoundaries.PhiR r →
+            ∀ (τ : ℝ),
+              GoldbachBoundaries.NoMeromorphicExtensionAt F (GoldbachBoundaries.halfPlane (↑r - 1))
+                  (↑r - 1 + ↑τ * Complex.I) ↔
+                GoldbachBoundaries.NoMeromorphicExtensionAt GoldbachBoundaries.Phi2Proof.Phi2c GoldbachBoundaries.HH
+                  (1 + ↑τ * Complex.I)
+GoldbachBoundaries.phiR_reduction : RiemannHypothesis →
+  ∀ {r : ℕ},
+    3 ≤ r →
+      ∃ R,
+        DifferentiableOn ℂ R (GoldbachBoundaries.halfPlane (↑r - 3 / 2)) ∧
+          (∀ (a : ℝ), ↑r - 3 / 2 < a → ∀ (T : ℝ), ∃ M, ∀ (s : ℂ), a ≤ s.re → T ≤ s.im → s.im ≤ T + 1 → ‖R s‖ ≤ M) ∧
+            ∀ (s : ℂ),
+              ↑r < s.re →
+                GoldbachBoundaries.PhiR r s =
+                  (↑r - 1) * (↑r - 2) / 2 / ↑(r - 1).factorial * riemannZeta (s - ↑r + 1) +
+                        ↑r * (↑r - 2) / GoldbachBoundaries.polyP (r - 1) s *
+                          (deriv riemannZeta (s - ↑r + 1) / riemannZeta (s - ↑r + 1)) +
+                      ↑(r.choose 2) / GoldbachBoundaries.polyP (r - 2) s * GoldbachBoundaries.Phi2 (s - ↑r + 2) +
+                    R s
+GoldbachBoundaries.phiR_radial_limit : RiemannHypothesis →
+  GoldbachBoundaries.Paper2.RiemannVonMangoldt →
+    GoldbachBoundaries.Paper2.LogDerivZetaLocal →
+      ∀ {r : ℕ},
+        2 ≤ r →
+          ∀ {τ : ℝ},
+            τ ≠ 0 →
+              Filter.Tendsto (fun η => ↑η * GoldbachBoundaries.PhiRProof.PhiRc r (↑r - 1 + ↑τ * Complex.I + ↑η))
+                (nhdsWithin 0 (Set.Ioi 0))
+                (nhds
+                  (↑(r.choose 2) * GoldbachBoundaries.Phi2Proof.pairAtom τ / Complex.Gamma (↑r - 1 + ↑τ * Complex.I)))
+GoldbachBoundaries.PhiRProof.phiR_continuation : RiemannHypothesis →
+  ∀ {r : ℕ},
+    2 ≤ r →
+      MeromorphicOn (GoldbachBoundaries.PhiRProof.PhiRc r) (GoldbachBoundaries.halfPlane (↑r - 1)) ∧
+        Set.EqOn (GoldbachBoundaries.PhiRProof.PhiRc r) (GoldbachBoundaries.PhiR r) (GoldbachBoundaries.halfPlane ↑r) ∧
+          AnalyticOnNhd ℂ (GoldbachBoundaries.PhiRProof.PhiRc r)
+              (GoldbachBoundaries.halfPlane (↑r - 1) \ GoldbachBoundaries.phiRPoles r) ∧
+            (∀ α ∈ GoldbachBoundaries.phiRPoles r, meromorphicOrderAt (GoldbachBoundaries.PhiRProof.PhiRc r) α = -1) ∧
+              ∃ res,
+                (∀ α ∈ GoldbachBoundaries.phiRPoles r,
+                    GoldbachBoundaries.HasResidue (GoldbachBoundaries.PhiRProof.PhiRc r) α (res α)) ∧
+                  GoldbachBoundaries.HasPhiRResidues r res ∧ ∀ α ∈ GoldbachBoundaries.phiRPoles r, res α ≠ 0
+GoldbachBoundaries.PhiRProof.tendsto_eta_Phi2c : RiemannHypothesis →
+  GoldbachBoundaries.Paper2.RiemannVonMangoldt →
+    GoldbachBoundaries.Paper2.LogDerivZetaLocal →
+      ∀ {τ : ℝ},
+        τ ≠ 0 →
+          Filter.Tendsto (fun η => ↑η * GoldbachBoundaries.Phi2Proof.Phi2c (1 + ↑τ * Complex.I + ↑η))
+            (nhdsWithin 0 (Set.Ioi 0))
+            (nhds (GoldbachBoundaries.Phi2Proof.pairAtom τ / Complex.Gamma (1 + ↑τ * Complex.I)))
+GoldbachBoundaries.Phi2HInf.phi2_hinf_natural_boundary : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Paper2.ZLittlewood →
+          GoldbachBoundaries.Phi2HInf.StirlingStrip →
+            (∃ F,
+                MeromorphicOn F GoldbachBoundaries.HH ∧
+                  Set.EqOn F GoldbachBoundaries.Phi2 (GoldbachBoundaries.halfPlane 2)) ∧
+              ∀ (F : ℂ → ℂ),
+                MeromorphicOn F GoldbachBoundaries.HH →
+                  F =ᶠ[Filter.codiscreteWithin (GoldbachBoundaries.halfPlane 2)] GoldbachBoundaries.Phi2 →
+                    GoldbachBoundaries.IsNaturalBoundary F GoldbachBoundaries.HH GoldbachBoundaries.lineOne
+GoldbachBoundaries.Phi2HInf.phiR_hinf_natural_boundary : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Paper2.ZLittlewood →
+          GoldbachBoundaries.Phi2HInf.StirlingStrip →
+            ∀ {r : ℕ},
+              2 ≤ r →
+                (∃ F,
+                    MeromorphicOn F (GoldbachBoundaries.halfPlane (↑r - 1)) ∧
+                      Set.EqOn F (GoldbachBoundaries.PhiR r) (GoldbachBoundaries.halfPlane ↑r)) ∧
+                  ∀ (F : ℂ → ℂ),
+                    MeromorphicOn F (GoldbachBoundaries.halfPlane (↑r - 1)) →
+                      F =ᶠ[Filter.codiscreteWithin (GoldbachBoundaries.halfPlane ↑r)] GoldbachBoundaries.PhiR r →
+                        GoldbachBoundaries.IsNaturalBoundary F (GoldbachBoundaries.halfPlane (↑r - 1))
+                          (GoldbachBoundaries.lineAt (↑r - 1))
+GoldbachBoundaries.Phi2HInf.phi2_hinf_natural_boundary_classical : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Paper2.ZLittlewood →
+          GoldbachBoundaries.Phi2HInf.StirlingStrip →
+            ∀ (F : ℂ → ℂ),
+              MeromorphicOn F GoldbachBoundaries.HH →
+                Set.EqOn F GoldbachBoundaries.Phi2 (GoldbachBoundaries.halfPlane 2) →
+                  ∀ (τ ε : ℝ),
+                    0 < ε →
+                      ¬∃ g,
+                          MeromorphicOn g (Metric.ball (1 + ↑τ * Complex.I) ε) ∧
+                            ∀ s ∈ Metric.ball (1 + ↑τ * Complex.I) ε ∩ GoldbachBoundaries.HH,
+                              AnalyticAt ℂ F s → g s = F s
+GoldbachBoundaries.Phi2HInf.phiR_hinf_natural_boundary_classical : GoldbachBoundaries.Paper2.Hinf →
+  GoldbachBoundaries.Paper2.Z1 →
+    GoldbachBoundaries.Paper2.Z2 →
+      GoldbachBoundaries.Paper2.Z3 →
+        GoldbachBoundaries.Paper2.ZLittlewood →
+          GoldbachBoundaries.Phi2HInf.StirlingStrip →
+            ∀ {r : ℕ},
+              2 ≤ r →
+                ∀ (F : ℂ → ℂ),
+                  MeromorphicOn F (GoldbachBoundaries.halfPlane (↑r - 1)) →
+                    Set.EqOn F (GoldbachBoundaries.PhiR r) (GoldbachBoundaries.halfPlane ↑r) →
+                      ∀ (τ ε : ℝ),
+                        0 < ε →
+                          ¬∃ g,
+                              MeromorphicOn g (Metric.ball (↑r - 1 + ↑τ * Complex.I) ε) ∧
+                                ∀ s ∈ Metric.ball (↑r - 1 + ↑τ * Complex.I) ε ∩ GoldbachBoundaries.halfPlane (↑r - 1),
+                                  AnalyticAt ℂ F s → g s = F s

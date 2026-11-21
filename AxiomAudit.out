@@ -1,0 +1,3 @@
+CheckAxioms.lean: 16 results; each exactly [propext, Classical.choice, Quot.sound].
+CheckPhiRAxioms.lean: 6 results; each exactly [propext, Classical.choice, Quot.sound].
+CheckPoleAxioms.lean: 26 results; each exactly [propext, Classical.choice, Quot.sound].

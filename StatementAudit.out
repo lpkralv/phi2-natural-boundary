@@ -1,0 +1,2 @@
+PASS: 12 retained statements, four H∞ statements and seven pole-at-2B/RH-criterion statements are byte-identical to their release/source references.
+PASS: every in-repo RH counterpart matches after the documented premise/binder mapping and whitespace normalization.

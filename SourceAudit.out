@@ -1,0 +1,11 @@
+PASS: no prohibited constructs in release-owned Lean sources or axiom-check scripts.
+UNCHANGED lean-toolchain 8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632
+UNCHANGED lake-manifest.json fa275e67278a8fe36c679513210cfc307bb1838b7aab9f7c0e344e7adeeaf5e2
+UNCHANGED lakefile.toml 54e9603f3692d05e8bebd27849c00274128fcf1c10fe55c769350458ad767eda
+PASS: all 100 v1.1 library modules retained; only the Hinf docstring changed.
+PASS: single root Phi2NB imports all 170 library files.
+PASS: 17 definitions underlying the four H∞ statements match the in-repo bodies.
+HInf {'files': 47, 'lines': 4617}
+HInfSupport {'files': 22, 'lines': 1094}
+Library {'files': 170, 'lines': 15732}
+LibraryAndChecks {'files': 173, 'lines': 15833}

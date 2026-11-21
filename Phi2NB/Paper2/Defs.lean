@@ -26,9 +26,9 @@ open GoldbachBoundaries
 
 /-- `(H_∞)`: for every `δ > 0` only finitely many zeros have `β > 1/2 + δ`.
 
-This is **not** a hypothesis of the main theorem and is used by no proof in this library. It is kept only because
-the elaborated term of `LogDerivZetaLocal` refers to the auxiliary declaration `Hinf._proof_1`, which Lean generated while
-elaborating this definition (the instance proof `(1 + 1).AtLeastTwo` behind the numeral `2`) and reuses later. -/
+This is the hypothesis of the H∞ theorems added in v1.2. The retained RH theorems do not take it as a premise.
+The definition was already present in v1.1 because the elaborated term of `LogDerivZetaLocal` refers to its
+auxiliary declaration `Hinf._proof_1`, generated for the numeral `2`. -/
 def Hinf : Prop := ∀ δ : ℝ, 0 < δ → {ρ | ρ ∈ NontrivialZeros ∧ 1 / 2 + δ < ρ.re}.Finite
 
 /-! ## The classical inputs

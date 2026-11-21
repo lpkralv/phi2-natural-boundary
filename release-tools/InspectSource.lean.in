@@ -1,0 +1,15 @@
+import GoldbachBoundaries.Phi2HInf.Classical
+import GoldbachBoundaries.Phi2HInf.PoleTwoBsup
+import Lean
+open Lean in
+run_cmd do
+  let env := (← getEnv).setExporting false
+  for (n, ci) in env.constants.toList do
+    if let some idx := env.getModuleIdxFor? n then
+      let mod := env.header.moduleNames[idx.toNat]!
+      if mod.toString.startsWith "GoldbachBoundaries" then
+        let deps := ci.getUsedConstantsAsSet.toArray.filter fun x =>
+          match env.getModuleIdxFor? x with
+          | some i => env.header.moduleNames[i.toNat]!.toString.startsWith "GoldbachBoundaries"
+          | none => false
+        IO.println <| Json.compress <| toJson (n.toString, mod.toString, deps.map Name.toString, ci.type.getUsedConstants.map Name.toString)

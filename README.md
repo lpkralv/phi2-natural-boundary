@@ -1,223 +1,349 @@
-# Lean formalization: under RH, Re s = 1 is a natural boundary of Φ₂
+# Lean formalization: natural boundaries of Φ₂ and Φ_r under H∞
 
 Louis P. Slothouber
 lpslot@me.com
 
 Lean 4 code for the paper
 
-> Louis P. Slothouber, *The line Re s = 1 is a natural boundary of Σ Λ(m)Λ(n)(m+n)^(-s) under the Riemann
-> Hypothesis*, preprint, 2026.
+> Louis P. Slothouber, *A natural boundary of the Goldbach generating series assuming only H∞*, preprint, 2026.
 
-Release `v1.1` is the version the paper describes. It adds the extension to sums of `r` prime powers (Section 7 of the paper). Release `v1.0` is the earlier version, with the Φ₂ development only.
+Release `v1.2` contains the H∞ development of Theorems A and C and the retained RH development of Corollary B in one Lake
+project. Import `Phi2NB` to use both. Plain `lake build` builds the single default target `Phi2NB`.
 
 ## What it proves
 
-Let Φ₂(s) = Σ_{m,n ≥ 1} Λ(m)Λ(n)(m+n)^(-s), which converges absolutely for Re s > 2. Egami and Matsumoto proved
-that under the Riemann Hypothesis Φ₂ continues meromorphically to Re s > 1, and conjectured that Re s = 1 is its
-natural boundary. The paper proves the conjecture under the Riemann Hypothesis alone, and this library checks that
-proof in Lean 4. The formal theorem is an implication. Its hypotheses are the Riemann Hypothesis, in Mathlib's
-formulation `RiemannHypothesis`, and three classical theorems on the zeros of ζ from Titchmarsh, *The Theory of the
-Riemann Zeta-Function*, Ch. IX (Theorems 9.2, 9.6(A) and 9.12), which Mathlib lacks. Each of the three is written
-as a proposition about Mathlib's `riemannZeta` and its zeros and taken as a hypothesis, not as an axiom; none is
-proved here. What Lean checks is that RH and these three imply the theorem. Everything else, from the facts about
-Γ and the residues of ζ'/ζ to Mellin inversion and the residue theorem, is proved in the library or taken from
-Mathlib and PrimeNumberTheoremAnd.
+Let Φ₂(s) = Σ_{m,n ≥ 1} Λ(m)Λ(n)(m+n)^(-s), which converges absolutely for Re s > 2. Assume H∞: for every δ > 0,
+only finitely many non-trivial zeros ρ = β + iγ of ζ have β > 1/2 + δ. Then Φ₂ continues meromorphically to
+Re s > 1, and Re s = 1 is its natural boundary. For every integer r ≥ 2, the corresponding ordered r-fold series
+Φ_r continues meromorphically to Re s > r − 1, and Re s = r − 1 is its natural boundary.
 
-## The theorem
+Under H∞ the formal development also proves the real point 2B of Φ₂ (B = sup of the real parts of the zeros, when a zero
+lies off the line): it is a simple pole with residue ν(2B)/Γ(2B) > 0, where ν(2B) = Σ_{β = B} m(ρ)²|Γ(ρ)|². It also
+proves that RH holds if and only if Φ₂ has no pole in the real interval (1, 2). This is Theorem C of the paper.
 
-The main theorem is `GoldbachBoundaries.phi2_natural_boundary`, in `Phi2NB/Phi2/Statement.lean`. Assume the
-Riemann Hypothesis and the three classical theorems. Then Φ₂ continues from Re s > 2 to a meromorphic function on
-the half-plane Re s > 1, analytic except for a simple pole at 2 with residue 1 and a simple pole at 1 + ρ, for each
-non-trivial zero ρ of ζ, with residue -2m(ρ)/ρ, where m(ρ) is the multiplicity of ρ; all these residues are
-non-zero. And every function meromorphic on Re s > 1 that agrees with Φ₂ on Re s > 2, outside a set with no
-accumulation point in Re s > 2, has the line Re s = 1 as a natural boundary: at no point of the line does it extend
-meromorphically to a disc around that point.
+The formal theorems are implications. Their hypotheses are H∞ and five classical inputs about the zeros of ζ
+and the Gamma function. Each input is a proposition about Mathlib's functions and is taken as a hypothesis;
+none is proved here as an unconditional theorem. What Lean checks is that these hypotheses imply the results.
+RH is not a premise of any H∞ theorem; in Theorem C(ii) it is one side of an equivalence. The classical inputs, their sources and the precise difference from the
+paper's input list are given below.
 
-The corollary `GoldbachBoundaries.phi2_natural_boundary_classical`, in the same file, states the boundary in the
-classical form: for a meromorphic continuation F of Φ₂ to Re s > 1, no function meromorphic on a disc centred on
-the line Re s = 1 coincides with F at every point of the disc with Re s > 1. By the identity theorem the two forms
-are equivalent.
+The RH results of release `v1.1` remain available with the same public theorem statements. They give the exact
+simple poles and residues, the natural boundaries of Φ₂ and Φ_r, the reduction to Φ₂ and the radial limits.
+The RH proofs use their original route. The derivation of Corollary B from the H∞ machinery in the paper's
+Section 8.1 is not formalized in that form.
 
-The three classical theorems are stated in `Phi2NB/Paper2/Defs.lean`:
+## The theorems
 
-* `RiemannVonMangoldt`: the local count of zeros, N(t+1) - N(t) ≤ C₁ log(t+3) for t ≥ 0 (Theorem 9.2);
-* `LogDerivZetaLocal`: the local expansion of ζ'/ζ by the zeros with |γ - t| ≤ 1, for |t| ≥ 2 (Theorem 9.6(A));
-* `LittlewoodGap`: Littlewood's bound on gaps between ordinates of zeros (Theorem 9.12).
+The main theorems are `GoldbachBoundaries.Phi2HInf.phi2_hinf_natural_boundary` and
+`GoldbachBoundaries.Phi2HInf.phiR_hinf_natural_boundary`, in `Phi2NB/Phi2HInf/Statements.lean`. Each asserts the
+existence of a meromorphic continuation equal to the series on its half-plane of absolute convergence, and
+that every meromorphic continuation agreeing with the series outside a set with no accumulation point there
+has the claimed natural boundary. The H∞ existence clauses assert no pole or residue catalogue.
 
-The passage from Titchmarsh's statements to these forms is checked by hand in Section 2 of the paper. Whether the
-formal definitions say what the prose says is a matter of reading them; Appendix A of the paper reproduces the
-statements of the main theorems and their corollaries verbatim (docstrings and proofs omitted) and explains every name they
-use.
+The corollaries `Phi2HInf.phi2_hinf_natural_boundary_classical` and
+`Phi2HInf.phiR_hinf_natural_boundary_classical`, in `Phi2NB/Phi2HInf/Classical.lean`, state the classical form.
+For a continuation F, no function meromorphic on a disc centred on the boundary line agrees with F at every
+point of the half-disc at which F is analytic. Appendix A of the paper does not print these two statements or the retained `phi2_natural_boundary_classical`; the paper's Section 10 states them in prose and refers to this README, which lists them below.
+All names in this README have the prefix `GoldbachBoundaries` unless stated otherwise.
 
-The extension to sums of `r` prime powers is in `Phi2NB/PhiR/Statement.lean`. For every `r ≥ 2`,
-`phiR_natural_boundary` gives a continuation to Re s > r − 1, its simple poles and residues, and the natural
-boundary on Re s = r − 1. `phiR_natural_boundary_classical` gives the disc formulation. Both take RH, RvM, LDL
-and LG. The continuation itself uses RH alone, as do the reduction identity `phiR_reduction` for `r ≥ 3` and
-the pointwise transfer `phiR_singular_iff`. The radial limit `phiR_radial_limit` uses RH, RvM and LDL, and is
-stated for the specified continuation `PhiRProof.PhiRc r` and for τ ≠ 0. `phiR_natural_boundary_two` derives
-the `r = 2` statement directly from the original `phi2_natural_boundary`.
+The pole at 2B and the RH criterion (Theorem C) are in `Phi2NB/Phi2HInf/PoleTwoBsup.lean`, namespace
+`GoldbachBoundaries.Phi2HInf`. `phi2_hinf_pole_twoBsup` states, for the continuation `Phi2cHInf` given by the
+right side of the regularized identity and a zero off the line: 1/2 < B < 1, the set of zeros with β = B is finite and
+non-empty, the formula for ν(2B) and its positivity, the residue ν(2B)/Γ(2B) and its positivity, order exactly −1, and
+that `Phi2cHInf` is not analytic at 2B. `phi2_hinf_pole_twoBsup_of_continuation` gives the residue and the order for every
+function meromorphic on Re s > 1 that agrees with Φ₂ on Re s > 2 outside a set without accumulation point there.
+`phi2_hinf_rh_iff_no_real_pole_of_continuation` is the equivalence of `RiemannHypothesis` with the absence of a pole
+(order ≥ 0) at every real x in (1, 2), for every such function. The three theorems take the premise `ZetaNoZeroIoo`,
+which says ζ(σ) ≠ 0 for 0 < σ < 1. It is not a hypothesis of the development: `zetaNoZeroIoo` proves it from the library's
+`riemannZeta_ne_zero_of_mem_Ioo` (`Phi2NB/ZetaRealNonvanishing.lean`). The companions `phi2_hinf_pole_twoBsup'` and
+`phi2_hinf_rh_iff_no_real_pole'`, stated for `Phi2cHInf`, omit it; `phi2_hinf_rh_iff_no_real_pole` is the same
+equivalence for `Phi2cHInf` with the premise. All take `Hinf`, `Z1`, `Z2`, `Z3` and `StirlingStrip`;
+`ZLittlewood` is not used. Only 2B is proved to be a pole; the statements say nothing about other real points of (1, 2).
 
-The extension leaves all the Lean files of release `v1.0`, including `Phi2NB.lean`, unchanged. (The comment at the head of `Phi2NB.lean` says the library holds the declarations
-used by `phi2_natural_boundary` "and nothing else"; that describes release `v1.0`. In `v1.1` the files under `Phi2NB/PhiR/` are further, separate
-declarations, outside the import tree of `Phi2NB.lean`.) Import
-`Phi2NB.PhiR.Statement` to use the extension. Plain `lake build` still builds the original entry point;
-the explicit build command below includes PhiR. The file and line counts below cover `Phi2NB.lean` and
-all Lean files under `Phi2NB/`, excluding the two axiom-check scripts.
+The retained RH main theorems are `phi2_natural_boundary`, in `Phi2NB/Phi2/Statement.lean`, and
+`phiR_natural_boundary`, in `Phi2NB/PhiR/Statement.lean`. For Φ₂ the poles are 2 and 1 + ρ, with residues 1 and
+−2m(ρ)/ρ. For Φ_r they are r and r − 1 + ρ, with residues 1/(r − 1)! and
+−r m(ρ) Γ(ρ)/Γ(r − 1 + ρ). The theorems assert that these are simple poles with nonzero residues.
+Their `_classical` corollaries exclude agreement at every point of the half-disc. That formulation is weaker
+than the new H∞ classical form; the retained codiscrete RH boundary clauses also exclude agreement only at
+analytic points, as Section 10 of the paper explains.
 
-The library has 101 Lean files (10,016 lines), including 25 PhiR files (2,576 lines). Its declarations live in
-the namespace `GoldbachBoundaries`, kept from the larger development the library was extracted from. The only dependencies are Mathlib and PrimeNumberTheoremAnd.
-Including the two axiom-check scripts, there are 103 Lean files (10,033 lines).
+The continuation results `Phi2Proof.phi2_continuation` and `PhiRProof.phiR_continuation` use RH alone, as do
+`phiR_reduction` for r ≥ 3 and `phiR_singular_iff`. The radial limits `Phi2Proof.tendsto_eta_Hphi2`,
+`PhiRProof.tendsto_eta_Phi2c` and `phiR_radial_limit` use RH, the local zero count and the local logarithmic-derivative
+expansion. The latter two require τ ≠ 0. `phiR_natural_boundary_two` derives r = 2 directly from the retained
+Φ₂ theorem.
+
+## The premises
+
+Write N(t) = Σ_{0 < γ ≤ t} m(ρ), over distinct non-trivial zeros with multiplicity m(ρ).
+Titchmarsh below means *The Theory of the Riemann Zeta-Function*, second edition, revised by D. R. Heath-Brown,
+Oxford University Press, 1986. These are the sources cited in Section 2 of the paper, in its Table 2 (Section 10) and in Appendix A.
+
+The H∞ theorems of Theorem A take the following premises; Theorem C uses the same list without `ZLittlewood`.
+The first five names are in `Paper2`; `StirlingStrip` is in `Phi2HInf`.
+
+| Lean premise | Classical statement | Source |
+|---|---|---|
+| `Hinf` | For every δ > 0, the set of zeros with β > 1/2 + δ is finite. | The hypothesis H∞ of the paper, Section 1.2; it is not an unconditional theorem. Its definition is retained in `Phi2NB/Paper2/Defs.lean`. |
+| `Z1` | If ρ is a non-trivial zero, then its conjugate and 1 − its conjugate are zeros with the same multiplicity. | Conjugation and the functional equation, Titchmarsh (2.1.1), p. 13; the multiplicity argument is given in Section 2 of the paper. |
+| `Z2` | N(t) = (t/(2π)) log(t/(2π)) − t/(2π) + O(log t) as t tends to infinity, and N(t+1) − N(t) ≤ C₁ log(t+3) for every t ≥ 0. | Titchmarsh Theorem 9.4, p. 214, for the asymptotic, and Theorem 9.2, p. 211, for the local count. |
+| `Z3` | Uniformly for −1 ≤ Re z ≤ 2, \|Im z\| ≥ 2 and ζ(z) ≠ 0, the norm of ζ′(z)/ζ(z) − Σ_{\|γ−Im z\|≤1} m(ρ)/(z−ρ) is at most C log\|Im z\|. | Titchmarsh Theorem 9.6(A), p. 217. Section 2 extends the large-height statement to \|Im z\| ≥ 2. |
+| `ZLittlewood` | For all sufficiently large t, some non-trivial zero has \|γ−t\| < a/(log log log t). | Littlewood, *Two notes on the Riemann zeta-function*, 1924; Titchmarsh Theorem 9.12, p. 224. |
+| `StirlingStrip` | For each real x₁ ≤ x₂ there are C ≥ 0 and T₀ such that \|Γ(z)−exp S(z)\| ≤ C/\|Im z\| · \|exp S(z)\| whenever x₁ ≤ Re z ≤ x₂ and \|Im z\| ≥ T₀, where S(z) = (z−1/2) Log z − z + (1/2) Log(2π) and Log z is principal. | NIST DLMF §5.11(i), the multiplicative form 5.11.3: Γ(z) = e^(−z) z^z (2π/z)^(1/2) Γ*(z) with Γ*(z) = 1 + O(1/z) uniformly in \|arg z\| ≤ π − δ. Section 2 of the paper derives this premise (its (G4)) from that form: with principal powers the prefactor equals exp S(z), and the part of the strip with \|Im z\| ≥ T₀ lies in such a sector. |
+
+The Theorem C statements add `ZetaNoZeroIoo` (ζ(σ) ≠ 0 for 0 < σ < 1), defined and proved as `zetaNoZeroIoo` in
+`Phi2NB/Phi2HInf/ZetaNoZeroIoo.lean`. It is not an unconditional input: Lean proves it from
+`riemannZeta_ne_zero_of_mem_Ioo`, and three of the statements list it as a premise only to show where it is used.
+
+`Z1`, `Z2`, `Z3` and `ZLittlewood` are extracted in `Phi2NB/HInfSupport/Paper2/Defs.lean`;
+`StirlingStrip` is in `Phi2NB/Phi2HInf/Defs.lean`. The formal numbering differs from the paper's numbering.
+The paper's (Z1) is the local-count conjunct of Lean's `Z2`; the paper's (Z2) is `ZLittlewood`; (Z3) is `Z3`;
+and (G4) is `StirlingStrip`. Lean also assumes the symmetries and the asymptotic for N(t). The proofs do not use
+the asymptotic conjunct, but v1.2 retains it to preserve the H∞ statements exactly. No `Z4`, `Z5`, `Z6`, `Z7` or
+hypothesis on additive relations between ordinates is a premise of the main theorems.
+
+The RH theorems retain Mathlib's `RiemannHypothesis`, defined in `Mathlib/NumberTheory/LSeries/RiemannZeta.lean`,
+which says that every non-trivial zero has real part 1/2,
+and these three premises in `Phi2NB/Paper2/Defs.lean`:
+
+| Lean premise | Classical statement | Source |
+|---|---|---|
+| `RiemannVonMangoldt` | N(t+1) − N(t) ≤ C₁ log(t+3) for all t ≥ 0. The asymptotic for N(t) is not included. | Titchmarsh Theorem 9.2, p. 211. |
+| `LogDerivZetaLocal` | The same uniform local expansion of ζ′/ζ as `Z3` above. | Titchmarsh Theorem 9.6(A), p. 217. |
+| `LittlewoodGap` | The same bound on gaps between ordinates as `ZLittlewood` above. | Titchmarsh Theorem 9.12, p. 224; Littlewood, 1924. |
+
+`ZeroSymmetry`, defined in the same file, has the same body as `Z1`. The RH development proves it from RH as
+`Phi2Proof.zeroSymmetry_of_RH`. The bridges in `Phi2NB/Phi2HInf/PremiseCorrespondence.lean` check these definitional
+identities and the projection from `Z2` to `RiemannVonMangoldt`. They also check that the full `Z2` agrees with
+the stronger counting premise already recorded in v1.1's `PhiRSource` namespace.
+
+## Extraction and release history
+
+The library keeps the namespace `GoldbachBoundaries` and its sub-namespaces from the in-repo development.
+The v1.2 extraction follows the four H∞ theorems of Theorem A and the declarations of Theorem C (the pole at 2B and
+the RH criterion, listed below) through their types, proof terms and source references, sharing the existing v1.1
+declarations. It adds the needed H∞ proofs and their supporting declarations under
+`Phi2NB/Phi2HInf/` and `Phi2NB/HInfSupport/`. Source helpers that clash with v1.1 because they take full `Z2`
+have the suffix `_fullZ2`. The eight renamed helpers and all extracted declarations are recorded in
+`release-tools/extraction.json`; no v1.1 public theorem is renamed or restated.
+
+`STATEMENT-DIFF.md` gives every public main statement beside its v1.1 and in-repo counterparts, including the
+four H∞ statements and the seven statements of Theorem C that are new in v1.2. All v1.1 statements and all H∞
+statements are byte-identical to their respective inputs. Only imports, extraction comments and the eight internal helper names change in the H∞ extraction.
+The comment on the pre-existing `Hinf` definition now describes its use in v1.2. The unextracted in-repo tree
+still defines the same names independently and must not be imported alongside this library.
+
+The H∞ addition, including its extracted support, the premise bridges and the files of Theorem C, has 69 Lean files
+(5,711 lines): 47 files (4,617 lines) under `Phi2NB/Phi2HInf/` and 22 files (1,094 lines) under `Phi2NB/HInfSupport/`.
+The whole library has 170 Lean files (15,732 lines), counting `Phi2NB.lean` and every Lean file under `Phi2NB/`.
+Including the three axiom-check scripts, there are 173 Lean files (15,833 lines). These are physical line counts,
+including comments and blank lines; dependencies, build products and extraction tools are excluded.
+`SourceAudit.out` records the counts and the checks of pins, preserved v1.1 modules and import coverage.
+
+* `v1.0`: the RH development for Φ₂, extracted from the larger library.
+* `v1.1`: adds the RH extension to Φ_r, including its poles, residues, reduction, pointwise transfer and radial limit.
+* `v1.2`: adds Φ₂ and Φ_r under H∞ and both classical-form corollaries, the real pole at 2B and the RH criterion for Φ₂ under H∞ (Theorem C), and makes the whole release one default build target. The RH public statements are retained.
 
 ## Versions
 
 * Lean 4.34.0 (`lean-toolchain`)
-* Mathlib, tag v4.34.0
-* PrimeNumberTheoremAnd, commit c39a751 (c39a751132c88b6e8080b74c74023fd95b3d8be0)
+* Mathlib, tag v4.34.0, commit `5ed2965256430c3649e86755f9576b54eca72435`
+* PrimeNumberTheoremAnd, commit `c39a751132c88b6e8080b74c74023fd95b3d8be0`
 
-`lake-manifest.json` pins every dependency to an exact commit.
+`lean-toolchain`, `lakefile.toml` and `lake-manifest.json` are byte-identical to v1.1. The manifest pins every
+dependency to an exact commit. Mathlib and PrimeNumberTheoremAnd are the mathematical dependencies.
 
 ## Build and check
 
-With elan installed (it reads `lean-toolchain` and fetches the right Lean), from this folder:
+With elan installed, from this folder:
 
-    lake exe cache get              # downloads the Mathlib build cache
-    lake build Phi2NB Phi2NB.PhiR.Statement  # builds both developments
-    lake env lean CheckAxioms.lean           # original Phi2 axiom check
-    lake env lean CheckPhiRAxioms.lean       # five PhiR theorems and original Phi2 theorem
+    lake exe cache get
+    lake build
+    lake env lean CheckAxioms.lean
+    lake env lean CheckPhiRAxioms.lean
+    lake env lean CheckPoleAxioms.lean
 
-`lake build Phi2NB Phi2NB.PhiR.Statement` should end with `Build completed successfully`.
-`CheckAxioms.lean` should print
+`lake build` builds the single default target `Phi2NB`, including both RH and H∞ and the premise bridges.
+No separate PhiR or H∞ target is needed. For a clean rebuild of the release sources, remove `.lake/build`
+before `lake build`; the dependency cache remains available.
 
-    'GoldbachBoundaries.phi2_natural_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]
-    'GoldbachBoundaries.phi2_natural_boundary_classical' depends on axioms: [propext, Classical.choice, Quot.sound]
+The complete release was checked on 2026-11-20 on macOS, Apple silicon, with `lake clean`,
+`lake exe cache get`, then plain `lake build`. All three commands exited successfully. The build ended with
 
-followed by the full types of the theorem and the corollary. These are the three standard axioms of Lean's logic;
-no `sorry` and no other axiom is used. The library contains no `sorry`, `admit`, `native_decide` or `axiom`
-declaration.
+    Build completed successfully (9179 jobs).
 
-The original Phi2-only steps were checked on a clean copy of release v1.0 (macOS, Apple silicon): `lake exe cache get` and
-`lake build` together took about 25 minutes, almost all of it building PrimeNumberTheoremAnd; the build finished
-with no errors. It prints some warnings. Those in `Phi2NB` are linter and deprecation notices (unused simp
-arguments, `if_pos`/`if_neg` deprecated, `Try this` suggestions). Two are `declaration uses 'sorry'` in
-PrimeNumberTheoremAnd's own `Wiener.lean`; nothing in this library depends on them, as the axiom check shows
-(a dependence on `sorry` would add `sorryAx` to the list).
+The `lake build` step took 80.6 minutes. [BuildV12Clean.out](BuildV12Clean.out) is the full output;
+[BuildV12Clean.tail.out](BuildV12Clean.tail.out) contains its final 35 lines. `CleanV12.out`, `CacheGet.out` and
+`release-tools/build-record.json` record the clean/cache steps, exit codes and times. `Toolchain.out` records the
+compiler version. Lake used its default scheduling; the job count above is Lake's total, not a CPU count.
 
-The PhiR extension was rebuilt on 2026-11-06 with the pinned Lean 4.34.0 and dependency manifest, after `lake clean`,
-with Mathlib restored from the local build cache and everything else compiled; the build took about 21 minutes (a later incremental rebuild after comment edits: about 7 minutes). The command
-`lake build Phi2NB Phi2NB.PhiR.Statement` ended with `Build completed successfully (9110 jobs).`
-`BuildPhiR.out` records the full output of the later incremental rebuild and all 15 warnings: 13 linter or deprecation notices in the release,
-and the two dependency `Wiener.lean` warnings described above. The four warnings in the new PhiR files are
-unused `ht` bindings in `QR_eq_sum.lean` and `norm_QR_le.lean`, and `simp` suggestions in `mellin_FL_pow.lean`
-and `Gamma_mul_PhiR_split.lean`.
+The cache command restored the matching local Mathlib cache, with no downloads in the final run.
+PrimeNumberTheoremAnd and all release modules then compiled from source after `lake clean`; no compiled artifacts from either input library were used.
 
 ## Correspondence with the paper
 
-Hypothesis abbreviations: RH = Mathlib's `RiemannHypothesis`; RvM = `RiemannVonMangoldt` (the paper's (Z1),
-Titchmarsh 9.2); LDL = `LogDerivZetaLocal` ((Z3), Titchmarsh 9.6(A)); LG = `LittlewoodGap` ((Z2), Titchmarsh 9.12).
-"Lean assumes" lists the hypotheses of the declaration. The threshold of Section 5 of the paper, X, is called `H` in
-Lean. To find a declaration, search the sources for its name (for example `grep -rn "theorem hL_explicit" Phi2NB`).
+These rows follow Appendix A of *A natural boundary of the Goldbach generating series assuming only H∞*.
+H = `Hinf`, Sym = `Z1`, Count = `Z2`, Local = `Z3`, Gap = `ZLittlewood`, Stir = `StirlingStrip`.
+RvM, LDL and LG denote the three retained RH premises listed above. The declarations have the prefix
+`GoldbachBoundaries`.
 
-### Premise correspondence with a stronger formulation of the premises
-
-`Phi2NB/PhiR/PremiseCorrespondence.lean` reproduces a stronger formulation of the premises in the namespace
-`GoldbachBoundaries.PhiRSource` and checks these bridges in Lean:
-
-| Stronger formulation | Release | Correspondence |
+| Paper statement | Lean declaration | Lean assumes / scope |
 |---|---|---|
-| `PhiRSource.Z2` | `Paper2.RiemannVonMangoldt` | Different propositions. `Z2` is the conjunction of the Riemann–von Mangoldt asymptotic and the local-count bound; the release premise is exactly the second conjunct. `PhiRSource.riemannVonMangoldt_of_Z2` projects it. The extension uses only the local count through the existing release proofs, with no asymptotic premise added or inferred. |
-| `PhiRSource.Z3` | `Paper2.LogDerivZetaLocal` | Identical definition bodies; `PhiRSource.Z3_iff_logDerivZetaLocal` is `Iff.rfl`. |
-| `PhiRSource.ZLittlewood` | `Paper2.LittlewoodGap` | Identical definition bodies; `PhiRSource.ZLittlewood_iff_littlewoodGap` is `Iff.rfl`. |
-| `PhiRSource.Phi2` | `Phi2` | Identical ordered-pair series, including junk values; `PhiRSource.Phi2_eq_release` is `rfl`. |
+| Theorem A(i), A(ii) | `Phi2HInf.phi2_hinf_natural_boundary` | H, Sym, Count, Local, Gap, Stir; existence of a continuation and boundary for every continuation agreeing codiscretely with Φ₂. |
+| Theorem A(ii), classical form | `Phi2HInf.phi2_hinf_natural_boundary_classical` | Same premises, and a meromorphic continuation equal to Φ₂ on Re s > 2; agreement on the disc is tested at analytic points of F. |
+| Theorem A(iii) | `Phi2HInf.phiR_hinf_natural_boundary` | Same premises, r ≥ 2; continuation to Re s > r − 1 and boundary there. |
+| Theorem A(iii), boundary in the sense of A(ii) | `Phi2HInf.phiR_hinf_natural_boundary_classical` | Same premises and r ≥ 2; analytic-point agreement on the half-disc. |
+| Theorem C(i), the pole at 2B | `Phi2HInf.phi2_hinf_pole_twoBsup` | Hinf, Sym, Count, Local, Stir, `ZetaNoZeroIoo` (proved as `Phi2HInf.zetaNoZeroIoo`), and a zero off the line; for `Phi2cHInf`. The primed `Phi2HInf.phi2_hinf_pole_twoBsup'` omits `ZetaNoZeroIoo`. |
+| Theorem C(i), every continuation | `Phi2HInf.phi2_hinf_pole_twoBsup_of_continuation` | Same premises as the previous row, including the zero off the line; residue ν(2B)/Γ(2B) and order −1 at 2B for every meromorphic F on Re s > 1 agreeing with Φ₂ outside a set without accumulation point in Re s > 2. |
+| Theorem C(ii), RH criterion | `Phi2HInf.phi2_hinf_rh_iff_no_real_pole_of_continuation` | Hinf, Sym, Count, Local, Stir, `ZetaNoZeroIoo`; `RiemannHypothesis` iff 0 ≤ order of F at every real x in (1, 2), for every such F. `phi2_hinf_rh_iff_no_real_pole` and the primed `phi2_hinf_rh_iff_no_real_pole'` state it for `Phi2cHInf`. |
+| Corollary B(i), B(ii) | `phi2_natural_boundary` | RH, RvM, LDL, LG; the first conjunct includes the exact simple poles and residues. The codiscrete boundary clause gives B(ii). |
+| Corollary B(ii), weaker classical form retained from v1.1 | `phi2_natural_boundary_classical` | RH, RvM, LDL, LG; excludes agreement at every point of the half-disc. |
+| Corollary B(iii) | `Phi2Proof.tendsto_eta_Hphi2` | RH, RvM, LDL; every real τ, including 0. `Hphi2` is the holomorphic remainder, with limit `pairAtom τ / Gamma (1 + τ * I)`. |
+| Corollary B(iv), continuation and boundary | `phiR_natural_boundary` | RH, RvM, LDL, LG, r ≥ 2; the first conjunct includes the exact simple poles and residues. |
+| Corollary B(iv), radial limit | `phiR_radial_limit` | RH, RvM, LDL, r ≥ 2, τ ≠ 0; stated for the constructed continuation `PhiRProof.PhiRc r`. |
 
-The general theorem therefore has the same conclusion as the same theorem under the stronger formulation, with a
-weaker counting premise. No proof here derives the full `Z2` from `RiemannVonMangoldt`. The stronger formulation is
-the one the extension was first written against, before it was ported to this library's premises. No theorem of the
-release uses `PhiRSource`; the file records the difference, and its bridges are definitional.
+The retained `phiR_natural_boundary_classical`, `phiR_natural_boundary_two`, `phiR_reduction` and
+`phiR_singular_iff` are additional v1.1 public results; their exact statements are in `STATEMENT-DIFF.md`.
+The continuation lemmas and the Φ₂ radial limit for τ ≠ 0 are recorded there too.
 
-### Classical inputs and unnumbered facts (paper Sections 2 and 3)
+Appendix A's definitions use the same meanings in the combined release:
 
-| Paper | Lean declaration(s) | Lean assumes | Note |
-|---|---|---|---|
-| (Z1) | premise `RiemannVonMangoldt` | — | the local count only; the asymptotic for N(t) is not part of the premise |
-| (Z2) | premise `LittlewoodGap` | — | |
-| (Z3) | premise `LogDerivZetaLocal` | — | stated for \|Im z\| ≥ 2, as in the paper |
-| bound (5), ψ ≪ log\|Im z\| on Re z ≥ ½+ε | `norm_negLogDerivZeta_le_log` | RH | Lean proves it from RH alone (Borel–Carathéodory); the paper deduces it from (Z3) and (Z1) |
-| (Z4) / Lemma 4.4 | `hL_explicit` | RH, RvM, LDL | Lean: ‖h+Z‖ ≤ C x^{−2/5} for all x > 0, contour along Re w = 2/5; paper: a = 0, contour along Re w = −½ |
-| (Z5) ordinates unbounded | `exists_nontrivialZero_im_gt` | — | Lean: Hadamard product (PrimeNumberTheoremAnd); paper: from (Z2) |
-| conjugate symmetry, multiplicity | `conj_mem_nontrivialZeros`, `zetaMult_conj` | — | |
-| finitely many zeros up to height T | `finite_zeros_abs_im_le` | — | |
-| (G2), (G3) | `norm_bKer`, `norm_Gamma_mul_one_add_abs_im_pow_le` | — | the paper's (G3) adds a ≤ a′ |
-| residues of ψ | `hasResidue_negLogDerivZeta_one`, `hasResidue_negLogDerivZeta_of_mem_nontrivialZeros` | — | |
-| definitions of Section 3 (F, h, the pieces of the decomposition, H, M) | `FL`, `hL`, `e1L`, `E2L`, `RrL`, `Hphi2`, `phi2Main`, `Phi2c`, `kernelL`; also `m1L` = ∫₀¹ h x^{z−1} | — | `m1L` has no name in the paper |
-| (10) Mellin transforms, F ≥ 0, F ≤ Ce^{−x} | `mellin_FL'`, `mellin_FL_sq'`, `FL_nonneg'`, `FL_continuousOn_and_le_exp` | — | |
-| (11) Mellin inversion | `FL_eq_verticalIntegral'` | — | integrability inside `FL_eq_verticalIntegral'_aux` |
-| (6) a_ρ, Z | `zeroCoef`, `zeroSum` | — | |
-| (15) 𝒞, J, P_τ, μ{τ} | `cauchyT`, `Kc`, `pairIdx`, `pairAtom` | — | |
-| (17) b_τ | `bKer` | — | |
-| (20) 𝒜_τ, q_τ | `Aidx`, `Aweight` | — | |
+| Paper notation | Lean definition |
+|---|---|
+| Non-trivial zeros, m(ρ), N(t) | `NontrivialZeros`, `zetaMult`, `Paper2.Nzero` |
+| Φ₂, Φ_r | `Phi2`, `PhiR r`; ordered tuples, with von Mangoldt weights |
+| Re s > a, Re s = a | `halfPlane a`, `lineAt a`; `HH` and `lineOne` are the cases a = 1 |
+| No local meromorphic extension; natural boundary | `NoMeromorphicExtensionAt`, `IsNaturalBoundary`; agreement outside a set with no accumulation point in the open overlap |
+| RH pole sets and residues | `phi2Poles`, `HasPhi2Residues`, `phiRPoles`, `HasPhiRResidues`, `HasResidue` |
+| H and μ{τ} in Corollary B(iii) | `Phi2Proof.Hphi2`, `Phi2Proof.pairAtom τ` |
+| The RH continuation of Φ_r | `PhiRProof.PhiRc r` |
 
-### Numbered results
+What Section 10 of the paper lists as not formalized remains outside this release: the expository prose of Sections 1.1 to 1.4
+(for instance the bound G₂(N) ≤ N log² N and the outline of the proof), the comments after the statements in Section 1.2,
+the section openers and unnumbered remarks of Sections 3 to 7, the three remarks of Section 8.3 with their numerical values
+(the radial coefficient and the bound for μ{0}, the kernel bound T₃ of Bhowmik and Schlage-Puchta, the thresholds), and all
+of Section 9. The release does not formalize the remarks on notation in Section 2 either.
+The passage from Titchmarsh's statements to the exact local-count and local-expansion forms is checked by hand
+in Section 2. The kernel checks the stated implications; whether the definitions express the paper's meaning
+is a matter of reading them.
 
-| Paper | Lean declaration(s) | Lean assumes | Note |
-|---|---|---|---|
-| Theorem 1.1(i) | `phi2_continuation`; first conjunct of `phi2_natural_boundary` | RH (continuation); RH, RvM, LDL, LG (main theorem) | the continuation is `Phi2c` = M + H |
-| Theorem 1.1(ii) | `phi2_natural_boundary_classical` applied to `Phi2c`; `phi2_boundary` | RH, RvM, LDL, LG | Lean also proves the codiscrete form for every meromorphic continuation |
-| Theorem 7.1(i) | `PhiRProof.phiR_continuation`; first conjunct of `phiR_natural_boundary` | RH, `2 ≤ r` (continuation); RH, RvM, LDL, LG, `2 ≤ r` (main theorem) | `PhiRProof.PhiRc r`, simple poles `r` and `r − 1 + ρ`, with the stated nonzero residues |
-| Theorem 7.1(ii) | `phiR_natural_boundary_classical`; second conjunct of `phiR_natural_boundary` | RH, RvM, LDL, LG, `2 ≤ r`; classical form also assumes a meromorphic continuation equal to `PhiR r` on Re s > r | boundary at Re s = r − 1 for every continuation; `phiR_singular_iff` transfers the pointwise meromorphic obstruction under RH alone |
-| Theorem 7.1(iii) | `phiR_radial_limit` | RH, RvM, LDL, `2 ≤ r`, `τ ≠ 0` | limit for `PhiRProof.PhiRc r`, which `PhiRProof.phiR_continuation` shows is meromorphic on Re s > r − 1 and equal to `PhiR r` on Re s > r; coefficient `choose r 2 * Phi2Proof.pairAtom τ / Gamma (r − 1 + iτ)`; for `Φ₂` itself, `PhiRProof.tendsto_eta_Phi2c` states the limit for `Phi2c` |
-| Proposition 7.2, identity (22); identity (21) | `phiR_reduction`; Γ-form `PhiRProof.Gamma_mul_PhiR_split` | RH, `3 ≤ r` (reduction); `2 ≤ r`, Re s > r (Γ-form, no RH) | identity on Re s > r; K_r is holomorphic on Re s > r − 3/2: `PhiRProof.differentiableOn_KR` (RH); holomorphic remainder on Re s > r − 3/2, bounded on each half-strip of the paper |
-| Theorem 7.1, specialization `r = 2` | `phiR_natural_boundary_two`, `PhiR_two`, `phiRPoles_two`, `hasPhiRResidues_two_iff` | RH, RvM, LDL, LG (boundary); none (definition bridges) | derived directly from the unchanged `phi2_natural_boundary` |
-| Lemma 3.1 (decomposition) | `Gamma_mul_negLogDerivZeta_split'`, `Gamma_mul_Phi2_split'`, `differentiable_e1L_E2L`, `phi2_identity` | — | integrability of h x^{z−1}: `integrableOn_Ioc_hL_mul_cpow`; of R: inside `Gamma_mul_Phi2_split'`; (14) is `Gamma_mul_negLogDerivZeta_split'` |
-| Lemma 3.2 (first shift, h = O(x^{−b})) | `verticalIntegral'_kernelL_shift`, `norm_hL_le` | RH | integrability on both lines: `integrable_kernelL`; Lean uses `norm_negLogDerivZeta_le_log` where the paper uses (5) |
-| Proposition 3.3 (continuation) | `differentiableOn_RrL`, `differentiableOn_Hphi2`, `meromorphicOn_phi2Main`, `analyticAt_negLogDerivZeta_sub_one`, `phi2_continuation` | RH | |
-| Lemma 4.1 (counting) | `sum_zetaMult_window_le`, `zetaMult_le_log`, `summable_zeros_inv_sq`, with `zeroSymmetry_of_RH` | `ZeroSymmetry`, RvM (`ZeroSymmetry` from RH) | `ZeroSymmetry`: ρ̄ and 1−ρ̄ are zeros of the same multiplicity; the paper uses conjugate symmetry under its standing RH. In (b) the paper names the constant of (a); Lean has ∃C |
-| Lemma 4.2 | `summable_norm_zeroCoef`, `summable_norm_pair`, `norm_zeroSum_le` | RH, RvM | the paper takes S = Σ\|a_ρ\|; Lean has ∃S ≥ 0 |
-| Lemma 4.3 | `integral_zeroSum_sq` | RH, RvM | absolute convergence of 𝒞 inside the proof |
-| Lemma 4.4 (explicit formula) | `hL_explicit` | RH, RvM, LDL | see (Z4) above; the identity with the integral on Re w = −½ is not a Lean statement |
-| Lemma 4.5 (R = 𝒞 + J, J bounded) | `RrL_eq_cauchyT_add_Kc` (RH, RvM), `norm_Kc_le` (RH, RvM, LDL) | RH, RvM; RH, RvM, LDL | integrability of J inside the proof; Lean's bound goes through `hL_explicit`; `norm_verticalIntegral'_kernelL_two_fifths_le`, used there, has no hypotheses |
-| Lemma 4.6 | `tendsto_eta_cauchyT` | RH, RvM | also gives summability of μ{τ} |
-| Theorem 4.7 (radial limit) | `tendsto_eta_Hphi2` | RH, RvM, LDL | exact match |
-| Lemma 5.1 | `norm_bKer`, `norm_bKer_le` | — | |
-| Lemma 5.2 (phase cone) | `bKer_cone` | — | existential U in both; the paper's proof exhibits max(1, 64Y²) |
-| Theorem 5.3 (abstract family) | `sum_bKer_ne_zero` | — | absolute convergence implied: a nonzero `tsum` is summable |
-| Lemma 5.4 | `pairAtom_eq_two_tsum` | RH, RvM | absolute convergence inside the proof |
-| Lemma 5.5 | `Aidx_bin_le` | RH, RvM | |
-| Theorem 5.6 (non-cancellation) | `pairAtom_ne_zero_of_large`; conjugation step `pairAtom_neg` | RH, RvM; `pairAtom_neg` none | `pairAtom_neg` has no hypotheses: a non-summable series has `tsum` 0, and conj 0 = 0 |
-| Lemma 6.1 (exceptional set finite) | `finite_exceptional` | — | no hypotheses in either |
-| Lemma 6.2 (large pairs) | `exists_ordinate_in_interval`, `exists_large_pair` | LG; RH, LG | |
-| Theorem 6.3 (density) | `exists_tau_pairAtom_ne_zero` | RH, RvM, LG | |
-| Lemma 6.4 (line blow-up) | `noMeromorphicExtensionAt_of_line_blowup` | — (G differentiable on the half-plane Re s > 1) | Lean proves the codiscrete conclusion, which implies the classical one |
-| Theorem 6.5 (boundary of H) | `Hphi2_natural_boundary` | RH, RvM, LDL, LG | codiscrete conclusion |
-| Proof of Theorem 1.1(ii) | `isNaturalBoundary_of_eventuallyEq_add`, `eventuallyEq_nhdsNE_of_agree_halfPlane_two'`, `phi2_boundary`, `phi2_natural_boundary_classical` | RH, RvM, LDL, LG | the paper's two sentences are the case with an empty exceptional set |
+## Intermediate results by paper section
 
-### Not formalized
+The paper's Section 10 and Appendix A state the main theorems only. The intermediate results of its Sections 3 to 7 and of
+Section 8.2 (Theorem C) have formal counterparts in the H∞ development; they are listed here by section, with the file that
+contains each. All names have the prefix `GoldbachBoundaries.Phi2HInf.`. Suitable constants are existential where the paper
+names them. The residue theorem `hasResidue_Phi2cHInf` is stated on the strip 1 < Re s < 2 − B, as in the paper; `hasResidue_Phi2cHInf_of_not_mem_phi2Poles` is the wider
+statement for every point of Re s > 1 that is neither 2 nor 1 + ρ, and is what Theorem C uses at 2B.
 
-The remark after Theorem 1.1 on
-poles for r ≤ ½; the passage from Titchmarsh's statements to the forms (Z1) and (Z3); the remark on same-sign
-weights; the phase-drift heuristic of Section 5; the remarks of Section 8 (the comparison with Egami and Matsumoto,
-the radial limit of Φ₂ itself at τ = 0 with the value μ{0} − 2 log 2π, thresholds); the remark on the kernel T₃
-in the opening paragraph of Section 7. The proof uses none of them. The uniqueness of the continuation (remark after
-Theorem 1.1) is formalized in the form the proof uses: two meromorphic continuations that agree with the series
-agree on a punctured neighbourhood of every point (`Phi2Proof.eventuallyEq_nhdsNE_of_agree_halfPlane_two'`; for
-`Φ_r`, `PhiRProof.eventuallyEq_nhdsNE_of_agree_halfPlane`).
+**Section 3 (the decomposition)**
 
-### Formalized only in weaker form
+| Group | Declarations (prefix `GoldbachBoundaries.Phi2HInf.`) | File |
+|---|---|---|
+| Explicit formula (3.3) | `hL_explicit_hinf`, `norm_V_le` | `Phi2NB/Phi2HInf/Proof/M1Regularization.lean` |
+| Regularized identity (3.4) | `phi2_reg_identity`, `differentiableOn_A` | `Phi2NB/Phi2HInf/Proof/M1Regularization.lean` |
+|  | `meromorphicOn_M0` | `Phi2NB/Phi2HInf/Fill/meromorphicOn_M0.lean` |
 
-In the proof of Lemma 4.4: the bounded remainder (a = 0), the limit −log 2π and the bound B₀x^{1/2} on the line
-integral, where the formal lemma has a = 2/5 (the argument needs only some a < ½). The named constant S = Σ|a_ρ| of
-Lemma 4.2; formally some S exists. The shared constant C₂ of Lemma 4.1(a) and (b); formally each part has its own.
-Absolute convergence of R(s) for Re s > 2 (Lemma 3.1), of J (Lemma 4.5) and of the series over 𝒜_τ (Lemma 5.4) is
-established formally only inside the proofs that use it; for R, inside `Gamma_mul_Phi2_split'`. Note also that
-`C_hsq_integrable` (`Phi2NB/Phi2/Fill/CCommon.lean`) needs RH.
+**Section 4 (continuation under H∞)**
+
+| Group | Declarations (prefix `GoldbachBoundaries.Phi2HInf.`) | File |
+|---|---|---|
+| Local finiteness and residues | `locallyFinite_pairCat`, `pairCat_denominator_bound` | `Phi2NB/Phi2HInf/Fill/pairCat_geometry.lean` |
+|  | `hasResidue_C` | `Phi2NB/Phi2HInf/Fill/hasResidue_C.lean` |
+|  | `hasResidue_Phi2cHInf` | `Phi2NB/Phi2HInf/Proof/M2Catalogue.lean` |
+
+**Section 5 (non-cancellation: the phase cone)**
+
+| Group | Declarations (prefix `GoldbachBoundaries.Phi2HInf.`) | File |
+|---|---|---|
+| Weights and cone (5.1) | `norm_bKer_asymp` | `Phi2NB/Phi2HInf/Fill/norm_bKer_asymp.lean` |
+|  | `bKer_cone_hinf` | `Phi2NB/Phi2HInf/Fill/bKer_cone_hinf.lean` |
+|  | `norm_bKer_ratio_le` | `Phi2NB/Phi2HInf/Fill/norm_bKer_ratio_le.lean` |
+| Abstract theorem (5.2) | `sum_bKer_ne_zero_hinf` | `Phi2NB/Phi2HInf/Fill/sum_bKer_ne_zero_hinf.lean` |
+| Non-cancellation on the zero side (5.3) | `pair_family_ne_zero_of_large` | `Phi2NB/Phi2HInf/Fill/collision_family.lean` |
+|  | `collisionAtom_ne_zero_of_large` | `Phi2NB/Phi2HInf/Proof/M3Cone.lean` |
+
+**Section 6 (the natural boundary)**
+
+| Group | Declarations (prefix `GoldbachBoundaries.Phi2HInf.`) | File |
+|---|---|---|
+| Infinitely many zeros off the line (6.1) | `exists_interior_poles_accum`, `boundary_infinite_case` | `Phi2NB/Phi2HInf/Proof/M5Boundary.lean` |
+| Finitely many zeros off the line (6.2) | `critical_decomposition` | `Phi2NB/Phi2HInf/Fill/critical_decomposition.lean` |
+|  | `tendsto_eta_criticalC` | `Phi2NB/Phi2HInf/Fill/tendsto_eta_criticalC.lean` |
+|  | `exists_tau_criticalAtom_ne_zero`, `criticalC_natural_boundary` | `Phi2NB/Phi2HInf/Fill/critical_boundary.lean` |
+|  | `boundary_finite_case` | `Phi2NB/Phi2HInf/Proof/M5Boundary.lean` |
+
+**Section 7 (sums of more than two prime powers)**
+
+| Group | Declarations (prefix `GoldbachBoundaries.Phi2HInf.`) | File |
+|---|---|---|
+| The cutoff and the reduction to Φ₂ | `norm_E_le`, `norm_g_le` | `Phi2NB/Phi2HInf/Fill/r_cutoff.lean` |
+|  | `Gb_eq_integral`, `mellin_Pr` | `Phi2NB/Phi2HInf/Fill/r_finite_mellin.lean` |
+|  | `differentiableOn_Hr` | `Phi2NB/Phi2HInf/Fill/r_remainder.lean` |
+|  | `phiR_reg_identity` | `Phi2NB/Phi2HInf/Fill/r_identity.lean` |
+|  | `phiR_hinf_boundary` | `Phi2NB/Phi2HInf/Fill/r_boundary.lean` |
+
+**Theorem C (Section 8.2) and Proposition 4.2(c)**
+
+| Group | Declarations (prefix `GoldbachBoundaries.Phi2HInf.`) | File |
+|---|---|---|
+| Residue off the poles of M₀ | `analyticAt_M0_of_not_mem_phi2Poles`, `hasResidue_Phi2cHInf_of_not_mem_phi2Poles` | `Phi2NB/Phi2HInf/Fill/pole_twoBsup.lean` |
+| ζ does not vanish on (0, 1) | `ZetaNoZeroIoo`, `zetaNoZeroIoo` | `Phi2NB/Phi2HInf/ZetaNoZeroIoo.lean` |
+|  | `ofReal_not_mem_phi2Poles` | `Phi2NB/Phi2HInf/Fill/pole_twoBsup.lean` |
+| B is attained | `exists_rightZero_of_offLine`, `Bsup_attained_of_offLine` | `Phi2NB/Phi2HInf/Fill/pole_twoBsup.lean` |
+| The coefficient at 2B | `collision_twoBsup_iff`, `collisionTwoBsupEquiv`, `zeroCoef_mul_zeroCoef_conj`, `collisionAtom_twoBsup`, `collisionAtom_twoBsup_pos` | `Phi2NB/Phi2HInf/Fill/pole_twoBsup.lean` |
+| The pole at 2B | `hasResidue_Phi2cHInf_twoBsup`, `not_analyticAt_Phi2cHInf_twoBsup` | `Phi2NB/Phi2HInf/Fill/pole_twoBsup.lean` |
+| From RH to the absence of real poles | `analyticAt_cauchy_of_gap`, `analyticAt_C_of_not_pairSum`, `analyticAt_Phi2cHInf_of_not_pole`, `exists_trivial_of_riemannZeta_eq_zero_of_re_nonpos`, `riemannHypothesis_iff_nontrivialZeros`, `analyticAt_Phi2cHInf_real_of_RH`, `riemannHypothesis_iff_analyticAt_Phi2cHInf_real` | `Phi2NB/Phi2HInf/Fill/pole_twoBsup_rh.lean` |
+| Main statements | `phi2_hinf_pole_twoBsup`, `phi2_hinf_pole_twoBsup'`, `phi2_hinf_pole_twoBsup_of_continuation`, `phi2_hinf_rh_iff_no_real_pole`, `phi2_hinf_rh_iff_no_real_pole'`, `phi2_hinf_rh_iff_no_real_pole_of_continuation` | `Phi2NB/Phi2HInf/PoleTwoBsup.lean` |
+
+The files `Phi2NB/Phi2HInf/Fill/pole_twoBsup.lean`, `Phi2NB/Phi2HInf/Fill/pole_twoBsup_rh.lean`,
+`Phi2NB/Phi2HInf/ZetaNoZeroIoo.lean` and `Phi2NB/Phi2HInf/PoleTwoBsup.lean` are the files of Theorem C.
+
+## Declarations named in the paper but not printed in Appendix A
+
+Section 10 and Appendix A of the paper name these declarations without printing them. Each is listed here with its file.
+All names have the prefix `GoldbachBoundaries.` plus the namespace shown.
+
+| Declaration | Namespace | File |
+|---|---|---|
+| `phi2_hinf_natural_boundary_classical`, `phiR_hinf_natural_boundary_classical` | `Phi2HInf` | `Phi2NB/Phi2HInf/Classical.lean` |
+| `phi2_natural_boundary_classical` | (none) | `Phi2NB/Phi2/Statement.lean` |
+| `phiR_natural_boundary_classical` (retained from v1.1; not named in the paper) | (none) | `Phi2NB/PhiR/Statement.lean` |
+| `ZetaNoZeroIoo` (the premise) and `zetaNoZeroIoo` (its proof) | `Phi2HInf` | `Phi2NB/Phi2HInf/ZetaNoZeroIoo.lean` |
+| `riemannZeta_ne_zero_of_mem_Ioo` (the proof of `zetaNoZeroIoo` rests on it) | (none) | `Phi2NB/ZetaRealNonvanishing.lean` |
+| `phi2Poles`, `HasPhi2Residues` | (none) | `Phi2NB/Phi2/Defs.lean` |
+| `phiRPoles`, `HasPhiRResidues` | (none) | `Phi2NB/PhiR/Defs.lean` |
+| `Hphi2`, `pairAtom` | `Phi2Proof` | `Phi2NB/Phi2/Proof/Defs.lean` |
+| `PhiRc` | `PhiRProof` | `Phi2NB/PhiR/Proof/Defs.lean` |
+| `Phi2cHInf` | `Phi2HInf` | `Phi2NB/Phi2HInf/Proof/Defs.lean` |
+| `HasResidue.meromorphicOrderAt_eq_neg_one` (a simple pole has order −1) | (none) | `Phi2NB/ResidueAPI.lean` |
+
+The two forms of the formal residue theorem behind Proposition 4.2(c) are `hasResidue_Phi2cHInf` (strip 1 < Re s < 2 − B,
+Section 4 above) and `hasResidue_Phi2cHInf_of_not_mem_phi2Poles` (every point of Re s > 1 other than 2 and 1 + ρ, in the Theorem C table).
 
 ## Axioms
 
-`#print axioms` on `GoldbachBoundaries.phi2_natural_boundary` and on
-`GoldbachBoundaries.phi2_natural_boundary_classical` gives `[propext, Classical.choice, Quot.sound]` for each; run
-`lake env lean CheckAxioms.lean` to see it. The captured output is in `CheckAxioms.out`.
-`CheckPhiRAxioms.lean` checks the five PhiR theorems and the original Phi2 theorem; its captured
-output is in `CheckPhiRAxioms.out`. All six give the same three standard axioms. The original result is also recorded in the docstring of
-`Phi2NB/Phi2/Statement.lean`.
+`CheckAxioms.lean` imports the complete `Phi2NB` library and prints the axioms and types of 16 results: the four
+H∞ theorems and 12 retained results, including every main theorem in Appendix A. `CheckPoleAxioms.lean` does the same
+for the 26 declarations of Theorem C (the pole at 2B and the RH criterion) that are listed in the section on intermediate
+results, among them its six main statements `phi2_hinf_pole_twoBsup`, `phi2_hinf_pole_twoBsup'`,
+`phi2_hinf_pole_twoBsup_of_continuation`, `phi2_hinf_rh_iff_no_real_pole`, `phi2_hinf_rh_iff_no_real_pole'` and
+`phi2_hinf_rh_iff_no_real_pole_of_continuation`. Every axiom list is exactly
+
+    [propext, Classical.choice, Quot.sound]
+
+The captured outputs are [CheckAxioms.out](CheckAxioms.out) and [CheckPoleAxioms.out](CheckPoleAxioms.out). The original `CheckPhiRAxioms.lean` also gives those
+same three axioms for each of its six results; its fresh output is [CheckPhiRAxioms.out](CheckPhiRAxioms.out).
+`AxiomAudit.out` records the exact-list checks. `StatementAudit.out` records the statement comparison, and
+`SourceAudit.out` records the source scan, definition comparisons, pins and file counts.
+
+The release-owned Lean files contain no `sorry`, `axiom`, `admit`, `native_decide`, `implemented_by` or `extern`
+construct. These are the three standard axioms of Lean's logic. The pinned PrimeNumberTheoremAnd dependency
+prints two existing `declaration uses 'sorry'` warnings in `Wiener.lean`; the axiom outputs show that neither is
+in the dependency closure of the audited results. The release's warnings are linter and deprecation notices.
+
+The extraction and audit tools in `release-tools/` use the original read-only input paths recorded for this
+build. They are not needed to build or use the library.
 
 ## License
 
