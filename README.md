@@ -12,6 +12,16 @@ Lean 4 code for the paper
 Release `v1.2` contains the H∞ development of Theorems A and C and the retained RH development of Corollary B in one Lake
 project. Import `Phi2NB` to use both. Plain `lake build` builds the single default target `Phi2NB`.
 
+## Companion documents
+
+The author wrote these with AI assistance while the paper was being developed, so that he could follow and check every step. Other readers may find them useful.
+
+- [Summary](companions/SUMMARY.pdf): what the paper proves, why it matters, and how it was found and checked.
+- [Reading guide](companions/READING-GUIDE.pdf): a section-by-section companion that writes out the steps the paper skips.
+- [Primer](companions/PRIMER.pdf): the background the paper assumes, written for a reader with a computer-science background and some complex analysis. It is also a record of how the author learned the material.
+
+Markdown sources are in the same folder. The paper is the authority; if a companion and the paper disagree, the paper is right.
+
 ## What it proves
 
 Let Φ₂(s) = Σ_{m,n ≥ 1} Λ(m)Λ(n)(m+n)^(-s), which converges absolutely for Re s > 2. Assume H∞: for every δ > 0,
