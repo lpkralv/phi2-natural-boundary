@@ -5,7 +5,9 @@ lpslot@me.com
 
 Lean 4 code for the paper
 
-> Louis P. Slothouber, *The Egami–Matsumoto conjecture under the Riemann Hypothesis alone: a natural boundary of the Goldbach generating series*, preprint, 2026.
+> Louis P. Slothouber, *The Egami–Matsumoto conjecture: a natural boundary of the Goldbach generating series*, preprint, Hexagon, hexagon:2611.00834, 2026.
+>
+> Version 1 on Hexagon carried the title *The Egami–Matsumoto conjecture under the Riemann Hypothesis alone: a natural boundary of the Goldbach generating series*. Version 2 adds the unconditional consequence of Alpöge's Lean proof of RH, as certified by the Lean and Mathlib communities; that step is a written argument and is not part of this formalization.
 
 Release `v1.2` contains the H∞ development of Theorems A and C and the retained RH development of Corollary B in one Lake
 project. Import `Phi2NB` to use both. Plain `lake build` builds the single default target `Phi2NB`.
@@ -85,7 +87,7 @@ The first five names are in `Paper2`; `StirlingStrip` is in `Phi2HInf`.
 
 | Lean premise | Classical statement | Source |
 |---|---|---|
-| `Hinf` | For every δ > 0, the set of zeros with β > 1/2 + δ is finite. | The hypothesis H∞ of the paper, Section 1.2; it is not an unconditional theorem. Its definition is retained in `Phi2NB/Paper2/Defs.lean`. |
+| `Hinf` | For every δ > 0, the set of zeros with β > 1/2 + δ is finite. | The hypothesis H∞ of the paper, Section 1.2; it follows from RH (`Paper2.hinf_of_RH`), and here it is taken as a hypothesis. Its definition is retained in `Phi2NB/Paper2/Defs.lean`. |
 | `Z1` | If ρ is a non-trivial zero, then its conjugate and 1 − its conjugate are zeros with the same multiplicity. | Conjugation and the functional equation, Titchmarsh (2.1.1), p. 13; the multiplicity argument is given in Section 2 of the paper. |
 | `Z2` | N(t) = (t/(2π)) log(t/(2π)) − t/(2π) + O(log t) as t tends to infinity, and N(t+1) − N(t) ≤ C₁ log(t+3) for every t ≥ 0. | Titchmarsh Theorem 9.4, p. 214, for the asymptotic, and Theorem 9.2, p. 211, for the local count. |
 | `Z3` | Uniformly for −1 ≤ Re z ≤ 2, \|Im z\| ≥ 2 and ζ(z) ≠ 0, the norm of ζ′(z)/ζ(z) − Σ_{\|γ−Im z\|≤1} m(ρ)/(z−ρ) is at most C log\|Im z\|. | Titchmarsh Theorem 9.6(A), p. 217. Section 2 extends the large-height statement to \|Im z\| ≥ 2. |
