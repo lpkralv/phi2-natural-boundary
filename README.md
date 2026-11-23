@@ -5,22 +5,12 @@ lpslot@me.com
 
 Lean 4 code for the paper
 
-> Louis P. Slothouber, *The Egami–Matsumoto conjecture: a natural boundary of the Goldbach generating series*, preprint, Hexagon, hexagon:2611.00834, 2026.
+> Louis P. Slothouber, *The Egami–Matsumoto conjecture: a natural boundary of the Goldbach generating series*, preprint, Hexagon, hexagon:2611.00834v2, 2026; Zenodo, [doi:10.5281/zenodo.24483697](https://doi.org/10.5281/zenodo.24483697).
 >
 > Version 1 on Hexagon carried the title *The Egami–Matsumoto conjecture under the Riemann Hypothesis alone: a natural boundary of the Goldbach generating series*. Version 2 adds the unconditional consequence of Alpöge's Lean proof of RH, as certified by the Lean and Mathlib communities; that step is a written argument and is not part of this formalization.
 
 Release `v1.2` contains the H∞ development of Theorems A and C and the retained RH development of Corollary B in one Lake
 project. Import `Phi2NB` to use both. Plain `lake build` builds the single default target `Phi2NB`.
-
-## Companion documents
-
-The author wrote these with AI assistance while the paper was being developed, so that he could follow and check every step. Other readers may find them useful.
-
-- [Summary](companions/SUMMARY.pdf): what the paper proves, why it matters, and how it was found and checked.
-- [Reading guide](companions/READING-GUIDE.pdf): a section-by-section companion that writes out the steps the paper skips.
-- [Primer](companions/PRIMER.pdf): the background the paper assumes, written for a reader with a computer-science background and some complex analysis. It is also a record of how the author learned the material.
-
-Markdown sources are in the same folder. The paper is the authority; if a companion and the paper disagree, the paper is right.
 
 ## What it proves
 
@@ -43,6 +33,16 @@ The RH results of release `v1.1` remain available with the same public theorem s
 simple poles and residues, the natural boundaries of Φ₂ and Φ_r, the reduction to Φ₂ and the radial limits.
 The RH proofs use their original route. The derivation of Corollary B from the H∞ machinery in the paper's
 Section 8.1 is not formalized in that form.
+
+## Companion documents
+
+The author wrote these with AI assistance while the paper was being developed, so that he could follow and check every step. Other readers may find them useful.
+
+- [Summary](companions/SUMMARY.pdf): what the paper proves, why it matters, and how it was found and checked.
+- [Reading guide](companions/READING-GUIDE.pdf): a section-by-section companion that writes out the steps the paper skips.
+- [Primer](companions/PRIMER.pdf): the background the paper assumes, written for a reader with a computer-science background and some complex analysis. It is also a record of how the author learned the material.
+
+Markdown sources are in the same folder. The paper is the authority; if a companion and the paper disagree, the paper is right.
 
 ## The theorems
 
