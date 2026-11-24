@@ -359,4 +359,6 @@ build. They are not needed to build or use the library.
 
 ## License
 
-Copyright 2026 Louis P. Slothouber. Licensed under the Apache License, Version 2.0; see LICENSE.
+Copyright 2026 Louis P. Slothouber. The Lean code and build files are licensed under the Apache License, Version 2.0; see LICENSE.
+
+The documents in `companions/` (summary, primer and reading guide, Markdown and PDF) are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/, the same licence as the paper.
